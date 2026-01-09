@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:35:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 09:27:32 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 10:22:54 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	disorder_sample(int *a, int max)
 	{
 		while (i < 100)
 		{
-			new_buffer[i] = (max * i) / 100;
+			new_buffer[i] = a[(max * i) / 100];
 			i++;
 		}
 		disorder(new_buffer, 100);

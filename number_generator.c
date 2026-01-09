@@ -4,9 +4,9 @@ void	nombres_dans_lordre(int n)
 {
 	int i = 1;
 
-	while (i <= n)
-		printf("%d ", i++);
-	printf("\n");
+	while (i <= n - 1)
+		printf("%d\n", i++);
+	printf("%d", i);
 }
 
 // int	*list_de_nombre(int n)
