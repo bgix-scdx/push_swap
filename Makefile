@@ -19,7 +19,14 @@ SOURCES = 	push_swap.c \
 			fct_de_base.c \
 			number_generator.c \
 			disorder.c \
-			benchmark/fonction_de_debuggage.c
+			benchmark/fonction_de_debuggage.c \
+			ft_printf/ft_printf.c \
+			ft_printf/utils/ft_printf_char.c\
+			ft_printf/utils/ft_printf_dec.c\
+			ft_printf/utils/ft_printf_str.c\
+			ft_printf/utils/ft_printf_undec.c\
+			ft_printf/utils/ft_printf_void.c\
+			ft_printf/utils/ft_printf_base.c
 
 B_SOURCES =	bonus/checker_bonus.c \
 			bonus/fct_lauch_bonus.c \
@@ -53,6 +60,7 @@ all: $(NAME)
 	rm -f $(NAME)
 
 rng: clean all
+	echo "\033[1;32m 👉 Executing using a list of size $(ARG) \033[0m"
 	for i in $$(seq 1 $(ARG)); do\
 		echo $$i >> $(TEMPLIST); \
 	done
