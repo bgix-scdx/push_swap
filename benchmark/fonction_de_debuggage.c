@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 08:57:55 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:03:53 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@
 /*Ce fichier contient des fonctions servant au debuggage, 
 il peut etre effacer sans perturber le fonctionement du code*/
 
+char *pad(int n)
+{
+	char pad[6];
+	
+	if (n < 10)
+		return ("     ");
+	if (n < 100)
+		return ("    ");
+	if (n < 1000)
+		return ("   ");
+	else 
+		return ("  ");
+}
+
 
 /*affiche les stack en tenant compte:
 	 de la position de la tete de liste,
@@ -23,29 +37,27 @@ il peut etre effacer sans perturber le fonctionement du code*/
 rotate une stack affectera cet affichage*/
 void	put_lists(t_stack A, t_stack B)
 {
-	int	i;
-
-	printf("-------------      -------------\n");
-	printf("|  stack(A) |      |  stack(B) |\n");
-	i = 0;
-	while (i < A.size && i < B.size)
+	t_r	i;
+	char *p1;
+	char *p2;
+	
+	i = init_reserve();
+	printf("-------------      -------------\n|  stack(A) |      |  stack(B) |\n");
+	i.a = 0;
+	while (i.a < A.size || i.a < B.size)
 	{
-		printf("|     %d     |      |     %d     |\n", A.array[A.top], B.array[B.top]);
+		i.b = A.array[A.top];
+		i.c = B.array[B.top];
+		p1 = pad(i.b);
+		p2 = pad(i.b);
+		if (i.a >= B.size)
+			printf("|     %d%s|      |     /     |\n", i.b, p1);
+		else if (i.a >= A.size)
+			printf("|     /     |      |     %d%s|\n", i.c, p2);
+		else 	
+			printf("|     %d%s|      |     %d%s|\n",i.b ,p1 ,i.c , p2);
 		rotate(&A, 1);
-		rotate(&B, 1);
-		i += 1;
-	}
-	while (i < A.size)
-	{
-		printf("|     %d     |      |     /     |\n", A.array[A.top]);
-		i += 1;
-		rotate(&A, 1);
-	}
-	while (i < B.size)
-	{
-		printf("|     /     |      |     %d     |\n", B.array[B.top]);
-		i += 1;
-		rotate(&B, 1);
+		i.a += rotate(&B, 1);
 	}
 }
 
