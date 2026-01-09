@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 16:05:36 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 15:49:22 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ t_stack	stack_init(int size_max, int size)
 	new.top = 0;
 	new.size = size;
 	new.s_max = size_max;
-	new.array = ft_calloc(size_max, sizeof(int));
+	new.array = ft_calloc(size_max + 1, sizeof(int));
 	return (new);
 }
 

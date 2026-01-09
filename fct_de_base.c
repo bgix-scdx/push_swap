@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 09:00:43 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 16:08:03 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 void	push(t_stack *src, t_stack *dst)
 {
-	if (src->array[src->top] == 0)
-		return ;
-	dst->size++;
-	src->size--;
-	rotate(dst, -1);
-	dst->array[dst->top] = src->array[src->top];
-	src->array[src->top] = 0;
-	src->top += 1;
+	int	i;
+
+	i = dst->size;
+	while (i > 0)
+	{
+		dst->array[i] = dst->array[i - 1];
+		i--;
+	}
+	i = src->top;
+	dst->array[0] = src->array[i];
+	while (i < src->size)
+	{
+		src->array[i] = src->array[i + 1];
+		i++;
+	}
+	dst->size += 1;
+	src->size -= 1;
 }
 
 void	swap(t_stack *s)
@@ -53,9 +62,8 @@ int	mod_ifier(int a, int size, int max)
 
 int	rotate(t_stack *s, int val)
 {
-	s->top = mod_ifier(s->top + val, s->size, s->s_max);
-	// s->top += val;
-	// if (s->top >= s->s_max)
-		
+	if (s->size == 0)
+		return 1;
+	s->top = (s->top + 1) % s->size;
 	return (val);
 }

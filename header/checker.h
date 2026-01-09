@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:49 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 11:38:02 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/09 12:51:05 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef 	CHECKER_H
 # define 	CHECKER_H
 
-#include "../ft_printf/ft_printf.h"
+#include "../printf/ft_printf.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
