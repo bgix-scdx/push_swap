@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_p.c                                           :+:      :+:    :+:   */
+/*   ft_printf_undec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 13:38:16 by bgix             ###   ########.fr       */
+/*   Created: 2025/11/19 12:45:12 by bgix              #+#    #+#             */
+/*   Updated: 2025/11/25 13:16:30 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../ft_printf.h"
 
-void pa(t_all *all)
+void	ft_printf_undec(int *length, va_list lst)
 {
-	push(&all->b, &all->a);
-	all->list_move[3] += 1;
-	//printf("pa\n");
-}
-void pb(t_all *all)
-{
-	push(&all->a, &all->b);
-	all->list_move[4] += 1;
-	//printf("pb\n");
-}
+	char			num[11];
+	int				i;
+	unsigned int	arg;
+	size_t			len_dup;
 
-void ra(t_all *all)
-{
-	rotate(&all->a, 1);
-	all->list_move[5] += 1;
-	//printf("ra\n");
-}
-
-void rb(t_all *all)
-{
-	rotate(&all->b, 1);
-	all->list_move[6] += 1;
-	//printf("rb\n");
+	len_dup = *length;
+	arg = va_arg(lst, int);
+	i = 0;
+	while (arg >= 10)
+	{
+		num[i] = (arg % 10) + '0';
+		arg /= 10;
+		i++;
+	}
+	num[i] = (arg % 10) + '0';
+	while (i >= 0)
+	{
+		*length += write(1, &num[i], 1);
+		i--;
+	}
+	if (len_dup > *length)
+		*length = -1;
 }

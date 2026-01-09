@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_p.c                                           :+:      :+:    :+:   */
+/*   insert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 13:38:16 by bgix             ###   ########.fr       */
+/*   Created: 2026/01/09 12:51:38 by bgix              #+#    #+#             */
+/*   Updated: 2026/01/09 14:36:37 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-void pa(t_all *all)
+void insert(t_all *all)
 {
-	push(&all->b, &all->a);
-	all->list_move[3] += 1;
-	//printf("pa\n");
-}
-void pb(t_all *all)
-{
-	push(&all->a, &all->b);
-	all->list_move[4] += 1;
-	//printf("pb\n");
-}
+	t_stack *a;
+	t_stack *b;
 
-void ra(t_all *all)
-{
-	rotate(&all->a, 1);
-	all->list_move[5] += 1;
-	//printf("ra\n");
-}
+	a = &all->a;
+	b = &all->b;
 
-void rb(t_all *all)
-{
-	rotate(&all->b, 1);
-	all->list_move[6] += 1;
-	//printf("rb\n");
+	while (b->size != b->s_max && a->array[a->top] != 0)
+	{
+		//printf("%d - %d \n ", a->array[a->top], b->size);
+		deb(*a, *b, 2);
+		if (a->array[a->top] == b->size + 1)
+			pb(all);
+		ra(all);
+	}
+	while (b->s_max-- >= 1)
+		pa(all);
 }

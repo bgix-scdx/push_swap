@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 09:13:09 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:35:19 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	disorder_sample(int *a, int max);
 void	*ft_calloc(int nmemb, int size);
 void	disorder(int *a, int max);
 void	put_moves(t_all all);
+void 	insert(t_all *all);
 void	swap(t_stack *s);
 void 	rra(t_all *all);
 void 	rrb(t_all *all);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 11:04:44 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:49:33 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,9 @@ int	main(int argc, char **argv)
 
 	all = all_init(argc - 1, argv);
 	
-	pb(all);
-	pb(all);
-	pb(all);
-	pb(all);
-	pa(all);
-	deb(all->a, all->b, 1);
+	insert(all);
 	//disorder(all->a.array, all->a.s_max);
-	
+	deb(all->a, all->b, 1);
 	//disorder_sample(all->a.array, all->a.s_max);
 	
 	return (0);

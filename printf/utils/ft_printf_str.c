@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_p.c                                           :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 13:38:16 by bgix             ###   ########.fr       */
+/*   Created: 2025/11/17 17:51:01 by bgix              #+#    #+#             */
+/*   Updated: 2025/11/25 13:16:04 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../ft_printf.h"
 
-void pa(t_all *all)
+int	ft_strlen(char *s)
 {
-	push(&all->b, &all->a);
-	all->list_move[3] += 1;
-	//printf("pa\n");
-}
-void pb(t_all *all)
-{
-	push(&all->a, &all->b);
-	all->list_move[4] += 1;
-	//printf("pb\n");
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-void ra(t_all *all)
+void	ft_printf_str(int *length, va_list lst)
 {
-	rotate(&all->a, 1);
-	all->list_move[5] += 1;
-	//printf("ra\n");
-}
+	char	*arg;
+	size_t	len_dup;
 
-void rb(t_all *all)
-{
-	rotate(&all->b, 1);
-	all->list_move[6] += 1;
-	//printf("rb\n");
+	len_dup = *length;
+	arg = va_arg(lst, char *);
+	if (!arg)
+	{
+		*length += write(1, "(null)", 6);
+		return ;
+	}
+	*length += write(1, arg, ft_strlen(arg));
 }

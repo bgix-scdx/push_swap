@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonction_de_debuggage.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 11:03:53 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 13:25:24 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	put_lists(t_stack A, t_stack B)
 		i.b = A.array[A.top];
 		i.c = B.array[B.top];
 		p1 = pad(i.b);
-		p2 = pad(i.b);
+		p2 = pad(i.c);
 		if (i.a >= B.size)
 			printf("|     %d%s|      |     /     |\n", i.b, p1);
 		else if (i.a >= A.size)

@@ -20,13 +20,14 @@ SOURCES = 	push_swap.c \
 			number_generator.c \
 			disorder.c \
 			benchmark/fonction_de_debuggage.c \
-			ft_printf/ft_printf.c \
-			ft_printf/utils/ft_printf_char.c\
-			ft_printf/utils/ft_printf_dec.c\
-			ft_printf/utils/ft_printf_str.c\
-			ft_printf/utils/ft_printf_undec.c\
-			ft_printf/utils/ft_printf_void.c\
-			ft_printf/utils/ft_printf_base.c
+			insert.c \
+			printf/ft_printf.c \
+			printf/utils/ft_printf_char.c\
+			printf/utils/ft_printf_dec.c\
+			printf/utils/ft_printf_str.c\
+			printf/utils/ft_printf_undec.c\
+			printf/utils/ft_printf_void.c\
+			printf/utils/ft_printf_base.c
 
 B_SOURCES =	bonus/checker_bonus.c \
 			bonus/fct_lauch_bonus.c \
