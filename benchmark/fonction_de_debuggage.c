@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 14:37:50 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 08:57:55 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_all_stacks(t_stack A, t_stack B)
 	i = 0;
 	while (i < B.s_max)
 		printf("| %d ", B.array[i++]);
-	printf("|      topB = %d sizeB = %d s_max = %d\n", B.top, B.size, B.size);
+	printf("|      topB = %d sizeB = %d s_max = %d\n", B.top, B.size, B.s_max);
 }
 
 /*permet d'economiser des lignes et du temp*/

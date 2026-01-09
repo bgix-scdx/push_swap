@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 16:10:44 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 09:27:08 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,33 @@
 // }	t_all;
 
 //pas de protection apres la creation des array
-t_all	all_init(int argc, char **argv)
+t_all	*all_init(int argc, char **argv)
 {
-	t_all	new;
-
-	new.moves = 0;
-	new.list_move = ft_calloc(11, sizeof(int));
-	new.a = stack_init(argc - 1, argc - 1);
-	new.b = stack_init(argc - 1, 0);
+	t_all	*new;
+	
+	new = malloc(sizeof(t_all));
+	if (!new)
+		return (write(1, "erreur malloc t_all init", 24), NULL);
+	new->moves = 0;
+	new->list_move = ft_calloc(11, sizeof(int));
+	new->a = stack_init(argc - 1, argc - 1);
+	new->b = stack_init(argc - 1, 0);
 	while (argc-- > 1)
-		new.a.array[argc - 1] = ft_atoi(argv[argc]);
+		new->a.array[argc - 1] = ft_atoi(argv[argc]);
 	return (new);
 }
 
 int	main(int argc, char **argv)
 {
-	t_all	all;
+	t_all	*all;
 
 	all = all_init(argc, argv);
 	
-	// rra(&all);
-	// rrb(&all);
-	deb(all.a, all.b, 0);
-	printf("paires desordonee: %d\n", disorder(all.a.array, all.a.s_max));
+	deb(all->a, all->b, 0);
+	printf("%d\n", all->a.s_max);
+	disorder(all->a.array, all->a.s_max);
+	
+	disorder_sample(all->a.array, all->a.s_max);
 	
 	return (0);
 }

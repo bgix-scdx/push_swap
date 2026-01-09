@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 16:06:01 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 09:13:09 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,16 @@ typedef struct s_r
 
 t_stack	stack_init(int size_max, int size);
 
-void	*ft_calloc(int nmemb, int size);
 void	deb(t_stack A, t_stack B, int n);
 void	push(t_stack *src, t_stack *dst);
-void	swap(t_stack *s);
+void	disorder_sample(int *a, int max);
+void	*ft_calloc(int nmemb, int size);
+void	disorder(int *a, int max);
 void	put_moves(t_all all);
+void	swap(t_stack *s);
+void 	rra(t_all *all);
+void 	rrb(t_all *all);
+void 	rrr(t_all *all);
 void 	sa(t_all *all);
 void 	sb(t_all *all);
 void 	ss(t_all *all);
@@ -65,13 +70,9 @@ void	pa(t_all *all);
 void 	ra(t_all *all);
 void 	rb(t_all *all);
 void 	rr(t_all *all);
-void 	rra(t_all *all);
-void 	rrb(t_all *all);
-void 	rrr(t_all *all);
 
 int 	mod_ifier(int a, int size, int max);
 int		rotate(t_stack *s, int val);
-int		disorder(int *a, int max);
 int		ft_atoi(char *nptr);
 
 t_r		init_reserve(void);

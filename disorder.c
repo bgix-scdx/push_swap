@@ -6,13 +6,13 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:35:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 16:16:26 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 09:27:32 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-int	disorder(int *a, int max)
+void	disorder(int *a, int max)
 {
 	t_r	i;
 	
@@ -30,6 +30,28 @@ int	disorder(int *a, int max)
 		}
 		i.a++;
 	}
-	printf("paires verif: %d\nTaille stack A: %d\n", i.d, max);
-	return (i.c);
+	if (i.d != 0)
+		i.e = (100 * i.c) / i.d;
+	else
+		i.e = 0;
+	printf("Pourcentage de paires endesordre: %d%% (%d sur %d)\n", i.e, i.c, i.d);
+}
+
+void	disorder_sample(int *a, int max)
+{
+	int i;
+	int new_buffer[100];
+	
+	i = 0;
+	if (max > 10)
+	{
+		while (i < 100)
+		{
+			new_buffer[i] = (max * i) / 100;
+			i++;
+		}
+		disorder(new_buffer, 100);
+	}
+	else
+		disorder(a, max);
 }

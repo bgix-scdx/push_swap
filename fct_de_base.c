@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 14:08:54 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/09 09:00:43 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,16 @@ int	mod_ifier(int a, int size, int max)
 {
 	if (a >= max)
 		a = max - size;
-	if (a < 0)
-		a += max;
+	else if (a < max - size)  //ne jamais rotate de autre chose que 1 ou -1
+		a = max - 1;
 	return (a);
 }
 
 int	rotate(t_stack *s, int val)
 {
 	s->top = mod_ifier(s->top + val, s->size, s->s_max);
+	// s->top += val;
+	// if (s->top >= s->s_max)
+		
 	return (val);
 }
