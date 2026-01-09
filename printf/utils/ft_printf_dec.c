@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_dec.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 17:51:01 by bgix              #+#    #+#             */
+/*   Updated: 2025/11/25 13:15:08 by bgix             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../ft_printf.h"
+
+static void	putnbr(int *length, int arg)
+{
+	char	num[11];
+	int		i;
+
+	i = 0;
+	if (arg < 0)
+	{
+		*length += write(1, "-", 1);
+		arg *= -1;
+	}
+	while (arg >= 10)
+	{
+		num[i] = (arg % 10) + '0';
+		arg /= 10;
+		i++;
+	}
+	num[i] = (arg % 10) + '0';
+	while (i >= 0)
+	{
+		*length += write(1, &num[i], 1);
+		i--;
+	}
+}
+
+void	ft_printf_dec(int *length, va_list lst)
+{
+	int		arg;
+	size_t	len_dup;
+
+	len_dup = *length;
+	arg = va_arg(lst, int);
+	if (arg <= -2147483648)
+	{
+		*length += write(1, "-2147483648", 11);
+		return ;
+	}
+	else if (arg >= 2147483647)
+	{
+		*length += write(1, "2147483647", 10);
+		return ;
+	}
+	putnbr(length, arg);
+	if (len_dup > *length)
+		*length = -1;
+}
