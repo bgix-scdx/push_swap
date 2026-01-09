@@ -29,6 +29,9 @@ B_SOURCES =	bonus/checker_bonus.c \
 OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
+LISTNAME = numbers.txt
+TEMPLIST = temp.txt
+ARG = 100
 NAME = push_swap.out
 
 ###############################
@@ -48,6 +51,14 @@ all: $(NAME)
 	rm -f $(FILE_COUNTER)
 	$(CC) $(CFLAGS) $(NAME)
 	rm -f $(NAME)
+
+rng: clean all
+	for i in $$(seq 1 $(ARG)); do\
+		echo $$i >> $(TEMPLIST); \
+	done
+	shuf $(TEMPLIST) >> $(LISTNAME)
+	rm -f $(TEMPLIST)
+	./a.out $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"
@@ -77,6 +88,8 @@ clean:
 	rm -rf $(OBJFOLDER)
 	rm -rf $(BOBJFOLDER)
 	rm -rf $(FILE_COUNTER)
+	rm -f $(LISTNAME)
+	rm -f $(TEMPLIST)
 	rm -rf "a.out"
 
 fclean:	clean
