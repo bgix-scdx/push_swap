@@ -19,7 +19,14 @@ SOURCES = 	push_swap.c \
 			fct_de_base.c \
 			number_generator.c \
 			disorder.c \
-			benchmark/fonction_de_debuggage.c
+			benchmark/fonction_de_debuggage.c \
+			ft_printf/ft_printf.c \
+			ft_printf/utils/ft_printf_char.c\
+			ft_printf/utils/ft_printf_dec.c\
+			ft_printf/utils/ft_printf_str.c\
+			ft_printf/utils/ft_printf_undec.c\
+			ft_printf/utils/ft_printf_void.c\
+			ft_printf/utils/ft_printf_base.c
 
 B_SOURCES =	bonus/checker_bonus.c \
 			bonus/fct_lauch_bonus.c \
@@ -29,6 +36,9 @@ B_SOURCES =	bonus/checker_bonus.c \
 OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
+LISTNAME = numbers.txt
+TEMPLIST = temp.txt
+ARG = 100
 NAME = push_swap.out
 
 ###############################
@@ -48,6 +58,15 @@ all: $(NAME)
 	rm -f $(FILE_COUNTER)
 	$(CC) $(CFLAGS) $(NAME)
 	rm -f $(NAME)
+
+rng: clean all
+	echo "\033[1;32m 👉 Executing using a list of size $(ARG) \033[0m"
+	for i in $$(seq 1 $(ARG)); do\
+		echo $$i >> $(TEMPLIST); \
+	done
+	shuf $(TEMPLIST) >> $(LISTNAME)
+	rm -f $(TEMPLIST)
+	./a.out $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"
@@ -77,6 +96,8 @@ clean:
 	rm -rf $(OBJFOLDER)
 	rm -rf $(BOBJFOLDER)
 	rm -rf $(FILE_COUNTER)
+	rm -f $(LISTNAME)
+	rm -f $(TEMPLIST)
 	rm -rf "a.out"
 
 fclean:	clean
