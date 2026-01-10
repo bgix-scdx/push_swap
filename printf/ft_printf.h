@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 10:16:48 by bgix              #+#    #+#             */
-/*   Updated: 2025/11/25 09:48:21 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/10 13:35:53 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_printf_undec(int *length, va_list lst);
 void	ft_printf_char(int *length, va_list lst);
 void	ft_printf_str(int *length, va_list lst);
 void	ft_printf_dec(int *length, va_list lst);
-int		ft_printf(const char *a, ...);
 int		ft_strlen(char *s);
 
 #endif

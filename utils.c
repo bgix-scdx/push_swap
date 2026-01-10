@@ -6,12 +6,13 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 15:49:22 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/10 14:09:26 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
+//un petit atoi 
 int	ft_atoi(char *nptr)
 {
 	int	sign;
@@ -19,6 +20,8 @@ int	ft_atoi(char *nptr)
 
 	number = 0;
 	sign = 1;
+	if (!nptr)
+		return (0);
 	if (*nptr == '-')
 	{
 		sign *= -1;
@@ -75,7 +78,6 @@ void	*ft_calloc(int nmemb, int size)
 	return (tab);
 }
 
-//pas de protection sur le calloc
 /*
  * Init the stacks.
  *
@@ -84,15 +86,15 @@ void	*ft_calloc(int nmemb, int size)
  * @param  {int} optfilter the index of the column used to add a filter to the chart
  * @return return the initialisated stack.
  */
-t_stack	stack_init(int size_max, int size)
+int	stack_init(int size_max, int size, t_stack *new)
 {
-	t_stack	new;
-
-	new.top = 0;
-	new.size = size;
-	new.s_max = size_max;
-	new.array = ft_calloc(size_max + 1, sizeof(int));
-	return (new);
+	new->top = 0;
+	new->size = size;
+	new->s_max = size_max;
+	new->array = ft_calloc(size_max + 1, sizeof(int));
+	if (!new->array)
+		return (write(1, "malloc failed\n", 15), -1);
+	return (0);
 }
 
 t_r	init_reserve(void)
@@ -106,15 +108,3 @@ t_r	init_reserve(void)
 	new.e = 0;
 	return (new);
 }
-
-/*ne pas effacer la fonction plus bas elle pourrait etre utile*/
-
-// int	plus_mod(int n, int val, int mod)
-// {
-// 	if (mod == 0)
-// 		mod = 1;
-// 	n = (n + val) % mod;
-// 	if (n < 0)
-// 		n += mod;
-// 	return (n);
-// }

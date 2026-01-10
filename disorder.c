@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 12:51:42 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:27:04 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	disorder(int *a, int max)
 		i.e = (100 * i.c) / i.d;
 	else
 		i.e = 0;
-	printf("Pourcentage de paires endesordre: %d%% (%d sur %d)\n", i.e, i.c, i.d);
+	ft_printf("Paires en desordre:  %d sur %d (%d%%)\n", i.c, i.d, i.e);
 }
 
 void	disorder_sample(int *a, int max)

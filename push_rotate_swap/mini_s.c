@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_r.c                                           :+:      :+:    :+:   */
+/*   mini_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/09 08:52:19 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/10 13:57:30 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
-void rr(t_all *all)
+void sa(t_all *all)
 {
-	rotate(&all->a, 1);
-	rotate(&all->b, 1);
-	all->list_move[7] += 1;
-	printf("rr\n");
+	swap(&all->a);
+	all->list_move[0] += 1;
+	l_add(&all->list, '0');
 }
 
-void rra(t_all *all)
+void sb(t_all *all)
 {
-	rotate(&all->a, -1);
-	all->list_move[8] += 1;
-	printf("rra\n");
+	swap(&all->b);
+	all->list_move[1] += 1;
+	ft_printf("sb\n");
 }
-void rrb(t_all *all)
+
+void ss(t_all *all)
 {
-	rotate(&all->b, -1);
-	all->list_move[9] += 1;
-	printf("rrb\n");
-}
-void rrr(t_all *all)
-{
-	rotate(&all->a, -1);
-	rotate(&all->b, -1);
-	all->list_move[10] += 1;
-	printf("rrr\n");
+	swap(&all->a);
+	swap(&all->b);
+	all->list_move[2] += 1;
+	ft_printf("ss\n");
 }
