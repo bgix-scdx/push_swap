@@ -11,8 +11,8 @@ FILE_COUNTER = .file_count
 OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
 
-SOURCES = 	benchmark/fonction_de_debuggage.c \
-			printf/utils/ft_printf_undec.c\
+SOURCES = 	printf/utils/ft_printf_undec.c\
+			bench/fonction_de_debuggage.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
@@ -22,12 +22,15 @@ SOURCES = 	benchmark/fonction_de_debuggage.c \
 			push_rotate_swap/mini_p.c\
 			push_rotate_swap/mini_r.c\
 			push_rotate_swap/mini_s.c\
+			bench/utils_bench.c\
 			number_generator.c\
 			printf/ft_printf.c\
+			bench/screen.c\
 			normaliser.c\
 			push_swap.c\
 			disorder.c\
 			insert.c\
+			radix.c\
 			utils.c\
 			pars.c\
 

@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 13:37:09 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/12 20:29:06 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,20 @@ void	print_all_stacks(t_stack A, t_stack B)
 }
 
 /*permet d'economiser des lignes et du temp*/
-void	deb(t_stack A, t_stack B, int n)
+void	deb(t_all *all, int n)
 {
+	int d;
+	
 	if (n == 1 || n == 3)
-		put_lists(A, B);
+		put_lists(all->a , all->b);
 	if (n >= 2)
-		print_all_stacks(A, B);
+		print_all_stacks(all->a, all->b);
+	d = disorder(all->a.array, all->s_max);
+	if (d == 100)
+		put_pos(all->screen, 3, 3, '1');
+	put_pos(all->screen, 4, 3, '0' + (d % 100) / 10);
+	put_pos(all->screen, 5, 3, '0' + (d % 10));
+	put_pos(all->screen, 6, 3, '%');
 }
 
 int count_move(t_all all)

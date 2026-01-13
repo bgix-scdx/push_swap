@@ -6,13 +6,13 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 13:27:04 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:24:33 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-void	disorder(int *a, int max)
+int	disorder(int *a, int max)
 {
 	t_r	i;
 	
@@ -34,7 +34,8 @@ void	disorder(int *a, int max)
 		i.e = (100 * i.c) / i.d;
 	else
 		i.e = 0;
-	ft_printf("Paires en desordre:  %d sur %d (%d%%)\n", i.c, i.d, i.e);
+	//ft_printf("Paires en desordre:  %d sur %d (%d%%)\n", i.c, i.d, i.e);
+	return (i.e);
 }
 
 void	disorder_sample(int *a, int max)

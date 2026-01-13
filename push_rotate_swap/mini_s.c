@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 13:57:30 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:21:05 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void sa(t_all *all)
 {
 	swap(&all->a);
 	all->list_move[0] += 1;
-	l_add(&all->list, '0');
+	ft_printf("sa\n");
 }
 
 void sb(t_all *all)

@@ -23,7 +23,7 @@ je met ici quelques expliquation a propos de la maniere dont sont stocker les no
 
 
 
-Les flags sont lu par la fonction parseur et sont automiatiqquement ranger dans la struture all
+Les flags sont lu par la fonction parseur et sont automiatiquement ranger dans la struture all
 
 all.list_flags contient les valeurs 0 ou 1 selon la presence ou non d'un flag. Elle est organiser de la maniere suivante:
 

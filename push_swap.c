@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 14:32:40 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/12 20:30:28 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 //En gros ca init all pour qu'il soit pret a l'emplois
 t_all	*all_init(int argc, char **argv)
 {
-	t_all	*all;
-	int i;
-	int flags_count;
-	int e;
-
+	t_all		*all;
+	int 		i;
+	int 		flags_count;
+	int 		e;
+	
 	all = malloc(sizeof(t_all));
 	if (!all)
-		return (write(1, "erreur malloc t_all init", 24), NULL);
+		return (write(1, "erreur malloc t_all init", 24), (t_all *)0);
 	all->moves = 0;
 	e += list_init(&all->list);
 	all->list_move = ft_calloc(11, sizeof(int));
@@ -37,22 +37,33 @@ t_all	*all_init(int argc, char **argv)
 	while (i++ < all->s_max + 1)
 		all->a.array[i - 1] = ft_atoi(argv[i + flags_count]);
 	normaliser(all->a.array, all->a.s_max, all);	
+	all->screen = screen_init(all->screen, 100, 20, ' ');
 	return (all);
 }
 
 int	main(int argc, char **argv)
 {
-	t_all	*all;
-
-	all = all_init(argc - 1, argv);
+	t_all		*all;
 	
-	deb(all->a, all->b, 1);
-	insert(all);
-	ft_printf("aa%d", 1); // Le ft_printf ne marche pas jsp pourquoi
-	deb(all->a, all->b, 1);
-
-	//disorder(all->a.array, all->a.s_max);
-	//disorder_sample(all->a.array, all->a.s_max);
+	all = all_init(argc - 1, argv);
+	if (!all)
+		return (2);
+	if (all->flags[4] == '1')
+	{
+		deb(all, 1);
+		radix(all);
+		deb(all, 1);
+		screen_display(all->screen);
+	}
+	else
+	{
+		deb(all, 1);
+		radix(all);
+		put_moves(*all);
+		printf("desordre = %d \n", disorder(all->a.array, all->s_max));
+	}	
+	// 	write(1, "\033[?1049l", 8);
+	// else
 	
 	return (0);
 }
