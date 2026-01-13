@@ -11,23 +11,28 @@ FILE_COUNTER = .file_count
 OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
 
-SOURCES = 	push_swap.c \
-			utils.c \
-			mini_p.c \
-			mini_r.c \
-			mini_s.c \
-			fct_de_base.c \
-			number_generator.c \
-			disorder.c \
-			benchmark/fonction_de_debuggage.c \
-			insert.c \
-			printf/ft_printf.c \
-			printf/utils/ft_printf_char.c\
-			printf/utils/ft_printf_dec.c\
-			printf/utils/ft_printf_str.c\
-			printf/utils/ft_printf_undec.c\
+SOURCES = 	printf/utils/ft_printf_undec.c\
+			bench/fonction_de_debuggage.c\
+			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
-			printf/utils/ft_printf_base.c
+			printf/utils/ft_printf_char.c\
+			printf/utils/ft_printf_str.c\
+			printf/utils/ft_printf_dec.c\
+			push_rotate_swap/psr_call.c\
+			push_rotate_swap/mini_p.c\
+			push_rotate_swap/mini_r.c\
+			push_rotate_swap/mini_s.c\
+			bench/utils_bench.c\
+			number_generator.c\
+			printf/ft_printf.c\
+			bench/screen.c\
+			normaliser.c\
+			push_swap.c\
+			disorder.c\
+			insert.c\
+			radix.c\
+			utils.c\
+			pars.c\
 
 B_SOURCES =	bonus/checker_bonus.c \
 			bonus/fct_lauch_bonus.c \
