@@ -21,13 +21,57 @@ void	radix(t_all *all)
 				ra(all);
 			i++;
 		}
-		// top = all->a.top;
-		// if (all->a.array[top] > all->a.array[(top + 1) % all->a.size])
-		// 	sa(all);
 		i = 0;
 		while (all->b.size != 0)
 			pa(all);
 		e *= 2;
 	}
 
+}
+
+void	radix_3(t_all *all)
+{
+	int i;
+	// int d;
+	int top;
+	int e;
+	int topb;
+	int botb;
+
+	e = 1;
+
+	while (e / 3 <= all->s_max)
+	{
+		topb = 0;
+		botb = 0;
+		i = 0;
+		while (i < all->s_max)
+		{
+			top = (all->a.array[all->a.top] / e) % 3;
+			if (top == 0)
+			{
+				botb += 1;
+				// if (i < all->s_max - 1)
+				pb(all);
+				rb(all);
+			}
+			else if (top == 1)
+			{
+				topb += 1;
+				pb(all);
+			}
+			else 
+				ra(all);
+			i++;
+		}
+		i = 0;
+		while (topb-- != 0)
+			pa(all);
+		while (all->b.size != 0)
+		{
+			rrb(all);
+			pa(all);
+		}
+		e *= 3;
+	}
 }

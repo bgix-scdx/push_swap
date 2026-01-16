@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 08:59:27 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 14:37:43 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:10:32 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	flag_fill(char *s, t_all *all, int *flag_count)
 	*flag_count += cmp_update(s, "--simple", all, 0);
 	*flag_count += cmp_update(s, "--medium", all, 1);
 	*flag_count += cmp_update(s, "--complex", all, 2);
-	*flag_count += cmp_update(s, "--adaptative", all, 3);
+	*flag_count += cmp_update(s, "--adaptive", all, 3);
 	*flag_count += cmp_update(s, "--bench", all, 4);
 	if (f == *flag_count)
 			return (-1);

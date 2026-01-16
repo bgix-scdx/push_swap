@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 13:57:34 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/13 09:59:05 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	rotate(t_stack *s, int val)
 {
 	if (s->size == 0)
 		return 1;
-	s->top = (s->top + 1) % s->size;
+	s->top = (s->top + val) % s->size;
+	if (s->top < 0)
+		s->top += s->size;
 	return (val);
 }

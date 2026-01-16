@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 14:12:58 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:58:28 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,32 @@
  * @param  all all
  * @return 1.
  */
-int normaliser(int *list, int size, t_all *all)
+int	*normaliser(int *list, int size)
 {
 	t_norm	a;
+	int	*new;
 	
+	new = malloc(size * sizeof(int));
+	if (!new)
+		return (write(1, "erreur malloc\n", 15), NULL);
 	a.n = 0;
 	a.prev_min = -2147483648;
 	while (a.n < size)
 	{
-		a.i = 0;
+		a.i = -1;
 		a.min = 2147483647;
-		while (a.i < size)
+		while (++a.i < size)
 		{
 			if (list[a.i] < a.min && list[a.i] > a.prev_min)
 			{
 				a.min = list[a.i];
 				a.min_index = a.i;
 			}
-			a.i++;
 		}
 		a.prev_min = list[a.min_index];
-		all->a.array[a.min_index] = a.n + 1;
-		a.n++;
+		new[a.min_index] = ++a.n;
 	}
-	return (1);
+	return (free(list), new);
 }
 
 //permet d'ajouter un carctere a un t_l sans risque de depasser la taille du buffer

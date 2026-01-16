@@ -12,7 +12,7 @@ OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
 
 SOURCES = 	printf/utils/ft_printf_undec.c\
-			bench/fonction_de_debuggage.c\
+			bench/bench.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
@@ -23,11 +23,11 @@ SOURCES = 	printf/utils/ft_printf_undec.c\
 			push_rotate_swap/mini_r.c\
 			push_rotate_swap/mini_s.c\
 			bench/utils_bench.c\
-			number_generator.c\
 			printf/ft_printf.c\
 			bench/screen.c\
 			normaliser.c\
 			push_swap.c\
+			minisort.c\
 			disorder.c\
 			insert.c\
 			radix.c\
