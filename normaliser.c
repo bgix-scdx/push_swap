@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normaliser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/14 14:58:28 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:56:01 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 int	*normaliser(int *list, int size)
 {
 	t_norm	a;
-	int	*new;
-	
+	int		*new;
+
 	new = malloc(size * sizeof(int));
 	if (!new)
 		return (write(1, "erreur malloc\n", 15), NULL);
@@ -48,12 +48,13 @@ int	*normaliser(int *list, int size)
 	return (free(list), new);
 }
 
-//permet d'ajouter un carctere a un t_l sans risque de depasser la taille du buffer
+//permet d'ajouter un carctere a un t_l sans risque 
+//de depasser la taille du buffer
 int	l_add(t_l *l, char c)
 {
-	char *new;
-	int	i;
-	
+	char	*new;
+	int		i;
+
 	if (!l->buffer)
 		return (-1);
 	if (l->len + 1 > l->size)
@@ -67,7 +68,7 @@ int	l_add(t_l *l, char c)
 			new[i] = l->buffer[i];
 		free(l->buffer);
 		l->buffer = new;
-	}	
+	}
 	l->buffer[l->len] = c;
 	return (l->size);
 }

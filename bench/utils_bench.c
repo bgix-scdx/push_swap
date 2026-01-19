@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bench.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/19 16:18:26 by bgix              #+#    #+#             */
+/*   Updated: 2026/01/19 16:21:00 by bgix             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/push_swap.h"
 
 static char	*verif(void)
@@ -11,7 +23,7 @@ static char	*verif(void)
 	return (str);
 }
 
-char		*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char			*str;
 	size_t			i;
@@ -80,9 +92,9 @@ char	*ft_itoa(int n)
 	return (ft_itoa2(n, sign));
 }
 
-int count_move(t_all all)
+int	count_move(t_all all)
 {
-	int i;
+	int	i;
 	int	count;
 
 	i = 0;

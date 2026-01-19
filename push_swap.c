@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/16 09:32:45 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:09:31 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 t_all	*all_init(int argc, char **argv)
 {
 	t_all		*all;
-	int 		i;
-	int 		flags_count;
-	int 		e;
-	
+	int			i;
+	int			flags_count;
+	int			e;
+
 	all = malloc(sizeof(t_all));
 	if (!all)
 		return (write(1, "erreur malloc t_all init", 24), (t_all *)0);
@@ -56,12 +56,12 @@ char	*fonction_launch(t_all *all)
 	if (all->flags[3] == '1')
 		return ("adaptive");
 	if (all->flags[0] == '1')
-		return (insert(all), "simple        O(n²)");
+		return (insert(all), "simple             O(n²)");
 	if (all->flags[1] == '1')
-		return ("medium        O(n√n)");
+		return (insert(all), "medium        O(n√n)");
 	if (all->flags[2] == '1')
 		return (radix(all), "complex            O(nlogn)");
-	return ("adaptive");
+	return (insert(all), "simple             O(n²)");
 }
 
 void	free_all(t_all *all)
@@ -73,36 +73,23 @@ void	free_all(t_all *all)
 	free(all);
 }
 
+//all->moves = count_move(*all);   // compte les coups
 int	main(int argc, char **argv)
 {
 	t_all		*all;
-	
+
 	all = all_init(argc - 1, argv);
 	if (!all)
 		return (2);
 	deb(all, 0);
-	all->screen->disorder = disorder(all->a.array, all->s_max);  // mesure le desordre initial
-	all->screen->mod_difficulty = fonction_launch(all);          // lance ls algo 
-	all->moves = count_move(*all);                               // compte les coups
+	all->screen->disorder = disorder(all->a.array, all->s_max);
+	if (all->screen->disorder == 0)
+		return (write(0, "Error\n", 7), 0);
+	insert(all);
+	all->screen->mod_difficulty = fonction_launch(all);
 	deb(all, 0);
 	if (all->flags[4] == '1')
 		bench(*all);
 	free(all);
 	return (0);
 }
-
-// sa(&all);
-// sb(&all);
-// ss(&all);
-
-// pa(&all);
-// pb(&all);
-
-// ra(&all);
-// rb(&all);
-// rr(&all);
-// rra(&all);
-// rrb(&all);
-// rrr(&all);
-
-// put_moves(all);

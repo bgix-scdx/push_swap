@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 13:30:24 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:21:52 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ void	*ft_calloc(int nmemb, int size)
  *
  * @param  size it is the initial size of the stack 0 for B and arg_c - 1 for A
  * @param  size_max argc - 1 
- * @param  {int} optfilter the index of the column used to add a filter to the chart
+ * @param  {int} optfilter the index of the 
+ * column used to add a filter to the chart
  * @return return the initialisated stack.
  */
 t_stack	stack_init(int size_max, int size)

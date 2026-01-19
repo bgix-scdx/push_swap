@@ -72,7 +72,7 @@ rng: clean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./a.out $$(cat $(LISTNAME))
+	./a.out --bench $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"

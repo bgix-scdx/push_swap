@@ -3,38 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   mini_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/10 13:57:21 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:46:11 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void pa(t_all *all)
+void	pa(t_all *all)
 {
 	push(&all->b, &all->a);
 	all->list_move[3] += 1;
-	ft_printf("pa\n");
+	all->moves += 1;
+	print_move_check(all, "pa");
 }
-void pb(t_all *all)
+
+void	pb(t_all *all)
 {
 	push(&all->a, &all->b);
 	all->list_move[4] += 1;
-	ft_printf("pb\n");
+	all->moves += 1;
+	print_move_check(all, "pb");
 }
 
-void ra(t_all *all)
+void	ra(t_all *all)
 {
 	rotate(&all->a, 1);
 	all->list_move[5] += 1;
-	ft_printf("ra\n");
+	all->moves += 1;
+	print_move_check(all, "ra");
 }
 
-void rb(t_all *all)
+void	rb(t_all *all)
 {
 	rotate(&all->b, 1);
 	all->list_move[6] += 1;
-	ft_printf("rb\n");
+	all->moves += 1;
+	print_move_check(all, "rb");
 }

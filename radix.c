@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/19 14:58:57 by bgix              #+#    #+#             */
+/*   Updated: 2026/01/19 15:00:42 by bgix             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header/push_swap.h"
 
 void	radix(t_all *all)
 {
-	int i;
-	int e;
-	int top;
+	int	i;
+	int	e;
+	int	top;
 
 	e = 1;
 	while (e <= all->s_max && disorder(all->a.array, all->s_max) != 0)
@@ -17,7 +29,7 @@ void	radix(t_all *all)
 				if (i < all->s_max - 1)
 					pb(all);
 			}
-			else 
+			else
 				ra(all);
 			i++;
 		}
@@ -26,20 +38,19 @@ void	radix(t_all *all)
 			pa(all);
 		e *= 2;
 	}
-
 }
 
+// int d;
+// if (i < all->s_max - 1)
 void	radix_3(t_all *all)
 {
-	int i;
-	// int d;
-	int top;
-	int e;
-	int topb;
-	int botb;
+	int	i;
+	int	top;
+	int	e;
+	int	topb;
+	int	botb;
 
 	e = 1;
-
 	while (e / 3 <= all->s_max)
 	{
 		topb = 0;
@@ -51,7 +62,6 @@ void	radix_3(t_all *all)
 			if (top == 0)
 			{
 				botb += 1;
-				// if (i < all->s_max - 1)
 				pb(all);
 				rb(all);
 			}
@@ -60,7 +70,7 @@ void	radix_3(t_all *all)
 				topb += 1;
 				pb(all);
 			}
-			else 
+			else
 				ra(all);
 			i++;
 		}

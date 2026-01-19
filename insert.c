@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   insert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:51:38 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/13 17:12:41 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:53:25 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-void insert(t_all *all)
+void	insert(t_all *all)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 	int		i;
 
 	a = &all->a;

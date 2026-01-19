@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/16 09:45:52 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:52:22 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 int	disorder(int *a, int max)
 {
 	t_r	i;
-	
+
 	i = init_reserve();
 	while (i.a < max)
 	{
 		i.b = i.a + 1;
 		while (i.b < max)
 		{
-			
 			if (a[i.a] > a[i.b])
 				i.c++;
 			i.b++;
@@ -39,9 +38,9 @@ int	disorder(int *a, int max)
 
 void	disorder_sample(int *a, int max)
 {
-	int i;
-	int new_buffer[100];
-	
+	int	i;
+	int	new_buffer[100];
+
 	i = 0;
 	if (max > 10)
 	{

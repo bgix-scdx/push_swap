@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/13 16:48:23 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:54:38 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	opti_3(t_all *all, int *l)
 {
-	int i;
-	int *new;
-	
+	int	i;
+	int	*new;
+
 	if (all->a.size != 3)
 		return (write(1, "wrong function\n", 16), -1);
 	i = all->a.top;
@@ -51,18 +51,18 @@ void	opti_4(t_all *all)
 			pb(all);
 		else if (all->a.array[(all->a.top + 3) % 4] == 1)
 			rra(all);
-		else 
+		else
 			ra(all);
 	}
 	opti_3(all, all->a.array);
 	pa(all);
 }
-	
+
 void	opti_5(t_all *all)
 {
-	int top;
-	int top1;
-	
+	int	top;
+	int	top1;
+
 	if (all->a.size != 5)
 	{
 		write(1, "wrong function\n", 16);
@@ -72,11 +72,11 @@ void	opti_5(t_all *all)
 	{
 		top = all->a.array[all->a.top];
 		top1 = all->a.array[(all->a.top + 1) % all->a.size];
-		if (top == 1 || top == 2 )
+		if (top == 1 || top == 2)
 			pb(all);
 		else if (top != 1 && top != 2 && top1 != 1 && top1 != 2)
 			rra(all);
-		else 
+		else
 			ra(all);
 	}
 	opti_3(all, all->a.array);

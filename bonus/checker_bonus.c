@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:35 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 13:29:55 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:28:53 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*read_the_file(int *size)
 /*recupere "inst" la liste d'instructions et lance les operations adequate,
 en cas d'entrer invalide, e = -1 et elle return -1, sinon elle return 
 le nombre d'operations effectuer*/
+//deb(*A, *B);
 int	translate_inst(int size, char *inst, t_stack *A, t_stack *B)
 {
 	char	*str;
@@ -64,7 +65,6 @@ int	translate_inst(int size, char *inst, t_stack *A, t_stack *B)
 			e = -1;
 		if (e == -1)
 			return (-1);
-		//deb(*A, *B);
 		i += e;
 		n++;
 	}
@@ -94,6 +94,7 @@ char	*verif(t_stack A, t_stack B)
 }
 
 //pas de protections sur les malloc/ calloc notament dans stack init
+//deb(stacka, stackb);
 int	main(int arg_c, char **argv)
 {
 	t_stack	stacka;
@@ -108,7 +109,6 @@ int	main(int arg_c, char **argv)
 		return (1);
 	while (arg_c-- > 1)
 		stacka.array[arg_c - 1] = ft_atoi(argv[arg_c]);
-	//deb(stacka, stackb);
 	inst = read_the_file(&size);
 	n = translate_inst(size, inst, &stacka, &stackb);
 	if (n == -1)

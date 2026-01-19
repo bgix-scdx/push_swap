@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 08:59:27 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/13 17:10:32 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:58:20 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	is_flag(char *str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (!str)
 		return (0);
@@ -29,12 +29,13 @@ int	is_flag(char *str)
 }
 
 /*
-*compare s1 () et s2, si elles sont egale, met '1' dans flags a l'index donner en argument
+*compare s1 () et s2, si elles sont egale,
+*met '1' dans flags a l'index donner en argument
 *return 0 si le flag a ete trouver 
 */
 int	cmp_update(char *s1, char *s2, t_all *all, int index)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s1[i] == s2[i])
@@ -58,7 +59,7 @@ int	flag_fill(char *s, t_all *all, int *flag_count)
 	*flag_count += cmp_update(s, "--adaptive", all, 3);
 	*flag_count += cmp_update(s, "--bench", all, 4);
 	if (f == *flag_count)
-			return (-1);
+		return (-1);
 	return (1);
 }
 
@@ -68,9 +69,9 @@ int	flag_fill(char *s, t_all *all, int *flag_count)
 */
 int	parser(int argc, char **argv, t_all *all)
 {
-	int i;
+	int	i;
 	int	flags_count;
-	
+
 	i = 1;
 	flags_count = 0;
 	while (is_flag(argv[i]))
