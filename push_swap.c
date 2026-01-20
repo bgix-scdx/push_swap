@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:09:31 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/20 10:20:34 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*fonction_launch(t_all *all)
 		return (insert(all), "medium        O(n√n)");
 	if (all->flags[2] == '1')
 		return (radix(all), "complex            O(nlogn)");
-	return (insert(all), "simple             O(n²)");
+	return ("simple             O(n²)");
 }
 
 void	free_all(t_all *all)
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 	all->screen->disorder = disorder(all->a.array, all->s_max);
 	if (all->screen->disorder == 0)
 		return (write(0, "Error\n", 7), 0);
-	insert(all);
+	radix(all);
 	all->screen->mod_difficulty = fonction_launch(all);
 	deb(all, 0);
 	if (all->flags[4] == '1')
