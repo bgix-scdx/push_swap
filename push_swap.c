@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:57:24 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 14:38:50 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,16 @@ int	main(int argc, char **argv)
 	t_all		*all;
 
 	all = all_init(argc - 1, argv);
-	if (all->s_max == 0)
-		return (write(0, "Error\n", 7), 0);
+	if (all->s_max == 0 || !all->a.array)
+		return (write(0, "Error\n", 6), free_all(all), 0);
 	if (!all)
 		return (2);
 	all->screen->disorder = disorder(all->a.array, all->s_max);
+	if (all->screen->disorder == -1)
+		return (free_all(all), 1);
 	all->screen->mod_difficulty = fonction_launch(all);
-	deb(all, 1);
 	if (all->flags[4] == '1')
 		bench(*all);
 	free_all(all);
 	return (0);
 }
-//deb(all, 0);

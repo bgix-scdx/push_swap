@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:38:16 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 14:58:55 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	*normaliser(int *list, int size)
 	int		*new;
 
 	new = malloc((size + 1) * sizeof(int));
-	if (!new)
-		return (write(0, "erreur malloc\n", 15), NULL);
+	if (!new || check_dup(list, size) == 0)
+		return (NULL);
 	a.n = 0;
 	a.prev_min = -2147483648;
 	while (a.n < size)

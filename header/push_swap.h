@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:27:32 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 13:51:23 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int		*normaliser(int *list, int size);
 int		ft_printf(const char *a, ...);
 int		rotate(t_stack *s, int val);
 int		opti_3(t_all *all, int *l);
+int		check_dup(int *a, int max);
 int		disorder(int *a, int max);
 int		count_move(t_all all);
 int		max(int n1, int n2);

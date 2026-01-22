@@ -75,7 +75,7 @@ rng: clean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	valgrind --leak-check=full ./a.out --bench --simple $$(cat $(LISTNAME))
+	valgrind --leak-check=full --track-origins=yes -s ./a.out --bench --simple $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"
