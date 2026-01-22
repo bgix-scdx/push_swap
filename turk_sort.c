@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:31:13 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 15:47:20 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,30 @@
 
 int	n_iem(t_stack s, int n)
 {
-	return (s.array[(s.top + n) % s.size]);
+	return (s.array[mod(s.top + n, s.size)]);
 }
 
 int	find_target_index(t_stack a, int val, int max)
 {
 	int	i;
+	int smallest_greater;
+	int	there;
 
 	i = 0;
-	while (n_iem(a, i) > n_iem(a, i - 1))
+	smallest_greater = 0;
+	while (i < a.size)
+	{
+		there = n_iem(a, i);
+		if (there < smallest_greater && there > val)
+			smallest_greater = there;
 		i++;
-	while (n_iem(a, i) < val && i < a.size)
+	}
+	i = 0;
+	while (n_iem(a, i) != smallest_greater)
 		i++;
+	ft_printf("i = %d  gret = %d\n", i, smallest_greater);
 	if (i > a.size / 2)
 		return (i - a.size);
-	ft_printf("i = %d a.s_max = %d\n", i, a.size);
 	return (i);
 }
 
