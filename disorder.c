@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 15:18:33 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 15:20:31 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	check_dup(int *a, int max)
 	int	i;
 	int	i_plus;
 
-	i = 1;
-	i_plus = 1;
+	i = 0;
+	i_plus = 0;
 	while (i < max)
 	{
 		i_plus = 0;
