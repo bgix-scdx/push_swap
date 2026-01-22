@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:21:52 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/21 15:17:42 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,26 +96,14 @@ t_stack	stack_init(int size_max, int size)
 	return (new);
 }
 
-/*Un genre de modulo mais d'une maniere qui m'arrange plus
-permet de revenir sur les premiere valeur non null de ma stack
-evite aussi les valeurs negatives*/
-int	mod_ifier(int a, int size, int max)
+t_r	init_reserve(void)
 {
-	if (a >= max)
-		a = max - size;
-	if (a < 0)
-		a += max;
-	return (a);
+	t_r	new;
+
+	new.a = 0;
+	new.b = 0;
+	new.c = 0;
+	new.d = 0;
+	new.e = 0;
+	return (new);
 }
-
-/*ne pas effacer la fonction plus bas elle pourrait etre utile*/
-
-// int	plus_mod(int n, int val, int mod)
-// {
-// 	if (mod == 0)
-// 		mod = 1;
-// 	n = (n + val) % mod;
-// 	if (n < 0)
-// 		n += mod;
-// 	return (n);
-// }

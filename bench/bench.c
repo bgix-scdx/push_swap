@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:10:28 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 11:11:10 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,22 +108,4 @@ rb  | rrr  |\n");
 ---------------\n");
 	all.moves = count_move(all);
 	ft_printf("moves total = %d\n", all.moves);
-}
-
-char	*nxc(int n, char c)
-{
-	char	*s;
-
-	s = malloc(n + 1);
-	if (!s)
-		return (write(1, "erreur malloc\n", 15), NULL);
-	s[n] = '\0';
-	while (n-- >= 0)
-		s[n] = c;
-	return (s);
-}
-
-int	nlen(int n)
-{
-	return (ft_strlen(ft_itoa(n)));
 }

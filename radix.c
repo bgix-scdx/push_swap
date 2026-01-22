@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:58:57 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/19 15:00:42 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 11:31:36 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,35 @@ void	radix(t_all *all)
 	}
 }
 
-// int d;
-// if (i < all->s_max - 1)
-void	radix_3(t_all *all)
+void	radix_2(t_all *all, int *e, int *botb, int *topb)
 {
 	int	i;
 	int	top;
+
+	i = 0;
+	while (i < all->s_max)
+	{
+		top = (all->a.array[all->a.top] / *e) % 3;
+		if (top == 0)
+		{
+			*botb += 1;
+			pb(all);
+			rb(all);
+		}
+		else if (top == 1)
+		{
+			*topb += 1;
+			pb(all);
+		}
+		else
+			ra(all);
+		i++;
+	}
+}
+
+void	radix_3(t_all *all)
+{
+	int	i;
 	int	e;
 	int	topb;
 	int	botb;
@@ -55,25 +78,7 @@ void	radix_3(t_all *all)
 	{
 		topb = 0;
 		botb = 0;
-		i = 0;
-		while (i < all->s_max)
-		{
-			top = (all->a.array[all->a.top] / e) % 3;
-			if (top == 0)
-			{
-				botb += 1;
-				pb(all);
-				rb(all);
-			}
-			else if (top == 1)
-			{
-				topb += 1;
-				pb(all);
-			}
-			else
-				ra(all);
-			i++;
-		}
+		radix_2(all, &e, &botb, &topb);
 		i = 0;
 		while (topb-- != 0)
 			pa(all);

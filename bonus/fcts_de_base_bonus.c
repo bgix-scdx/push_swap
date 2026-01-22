@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fcts_de_base_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/08 13:30:19 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:07:59 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,49 @@
 
 void	push(t_stack *src, t_stack *dst)
 {
-	if (src->array[src->top] == 0)
+	int	i;
+
+	if (src->size == 0)
 		return ;
-	dst->size++;
-	src->size--;
-	rotate(dst, -1);
-	dst->array[dst->top] = src->array[src->top];
-	src->array[src->top] = 0;
-	src->top += 1;
+	i = dst->size;
+	while (i > dst->top)
+	{
+		dst->array[i] = dst->array[i - 1];
+		i--;
+	}
+	i = src->top;
+	dst->array[dst->top] = src->array[i];
+	while (i < src->size)
+	{
+		src->array[i] = src->array[i + 1];
+		i++;
+	}
+	dst->size += 1;
+	src->size -= 1;
+	if (src->size != 0)
+		src->top = src->top % src->size;
 }
 
 void	swap(t_stack *s)
 {
-	int	tmp;
-	int	next;
-	int	current;
+	t_r	i;
 
-	current = s->array[s->top];
-	next = s->array[mod_ifier(s->top + 1, s->size, s->s_max)];
-	if (next == 0 || current == 0)
+	i = init_reserve();
+	i.d = s->top;
+	i.e = (s->top + 1) % s->size;
+	if (s->array[i.e] == 0)
 		return ;
-	tmp = current;
-	s->array[s->top] = next;
-	s->array[mod_ifier(s->top + 1, s->size, s->s_max)] = tmp;
+	i.a = s->array[i.d];
+	s->array[i.d] = s->array[i.e];
+	s->array[i.e] = i.a;
 }
 
-/*rotate n'affecte pas l'ordre des elements des stacks
-on bouge simplement la tete de liste
-La complexiter de rotate ce trouve en fait dans la fonction mod_ifier()
-qui permet l'acces a des valeurs de la liste ce trouvant derriere top
-
-exemple ->            | / | 3 | top | 2 |
-
-Ici en partant de top la fonction doit revenir sur la valeur 3 apres avoir passer
-le 2 pour cela elle utilisse mod_ifier().
-*/
 int	rotate(t_stack *s, int val)
 {
-	s->top = mod_ifier(s->top + val, s->size, s->s_max);
+	if (s->size == 0)
+		return (1);
+	s->top = (s->top + val) % s->size;
+	if (s->top < 0)
+		s->top += s->size;
 	return (val);
 }

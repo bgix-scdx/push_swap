@@ -6,14 +6,12 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:12:01 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/20 10:18:53 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 11:11:43 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-//pour cette fonction et celle en desous, les -X \
-correspond a la taille du text qui set la couleur \
-qui faut enlever (car ils sont pas visible)
+
 int	colone_one(int i, t_all all)
 {
 	char	*mod;
@@ -22,23 +20,25 @@ int	colone_one(int i, t_all all)
 	mod = ft_substr(all.screen->mod_difficulty, 0, 19);
 	complexity = ft_substr(all.screen->mod_difficulty, 19, 26);
 	if (i == 3)
-		return (ft_printf("\033[1;37m║    \033[1;31mAlgorythm Used : \
+		i = (ft_printf("\033[1;37m║    \033[1;31mAlgorythm Used : \
 \033[1;37m%s\033[0m", mod) + 1 - 25);
 	else if (i == 6)
-		return (ft_printf("\033[1;37m║    \033[1;31mAlgorythm Complexity : \
+		i = (ft_printf("\033[1;37m║    \033[1;31mAlgorythm Complexity : \
 \033[1;37m%s\033[0m", complexity) + 1 - 25);
 	else if (i == 9)
-		return (ft_printf("\033[1;37m║    \033[1;31mTotal Moves : \
+		i = (ft_printf("\033[1;37m║    \033[1;31mTotal Moves : \
 \033[1;37m%d\033[0m", all.moves) + 1 - 25);
 	else if (i == 12)
-		return (ft_printf("\033[1;37m║    \033[1;31mPre Sorting : \
+		i = (ft_printf("\033[1;37m║    \033[1;31mPre Sorting : \
 \033[1;37m%d%%\033[0m", all.screen->disorder) + 1 - 25);
 	else if (i == 15)
-		return (ft_printf("\033[1;37m║    \033[1;31mPost Sorting : \
-\033[1;37m%d%%\033[0m", disorder(all.a.array, all.a.s_max)) + 1 - 25);
+		i = ft_printf("\033[1;37m║    \033[1;31mPost Sorting : \
+\033[1;37m%d%%\033[0m", disorder(all.a.array, all.a.s_max)) + 1 - 25;
 	else if (i == 18)
-		return (ft_printf("\033[1;37m║\033[0m") + 1 - 11);
-	return (0);
+		i = ft_printf("\033[1;37m║\033[0m") + 1 - 11;
+	free(mod);
+	free(complexity);
+	return (i);
 }
 
 int	colone_two(int i, t_all all)
@@ -69,15 +69,20 @@ int	colone_two(int i, t_all all)
 
 void	print_column(t_all all, int index, int roof)
 {
-	int	steps;
-	int	c2_pos;
-	int	length;
+	int		steps;
+	int		c2_pos;
+	int		length;
+	char	*val;
 
 	c2_pos = 60;
 	steps = colone_one(index, all) - 1;
-	steps = steps + ft_printf("%s", nxc(c2_pos - steps, ' '));
+	val = nxc(c2_pos - steps, ' ');
+	steps = steps + ft_printf("%s", val);
+	free(val);
 	length = steps + colone_two(index, all);
-	ft_printf("%s\033[1;37m║\033[0m\n", nxc(roof - length + 1, ' '));
+	val = nxc(roof - length + 1, ' ');
+	ft_printf("%s\033[1;37m║\033[0m\n", val);
+	free(val);
 }
 
 void	bench(t_all all)
@@ -102,4 +107,20 @@ void	bench(t_all all)
 		else if (i < lines)
 			ft_printf("\033[1;37m║%s║\n\033[0m", space);
 	}
+	free(hash);
+	free(space);
+}
+
+char	*nxc(int n, char c)
+{
+	char	*s;
+
+	s = malloc(n + 1);
+	if (!s)
+		return (write(1, "erreur malloc\n", 15), NULL);
+	s[n] = '\0';
+	n--;
+	while (n >= 0)
+		s[n--] = c;
+	return (s);
 }

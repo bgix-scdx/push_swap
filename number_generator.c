@@ -6,56 +6,90 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:56:51 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/19 14:56:54 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 11:21:15 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
-
-void	nombres_dans_lordre(int n)
+/*
+void	nombres_dans_lordre(int *liste, int n)
 {
 	int	i;
 
-	i = 1;
-	while (i <= n - 1)
-		ft_printf("%d\n", i++);
-	ft_printf("%d", i);
+	i = 0;
+	while (i < n)
+	{
+		liste[i] = i + 1;
+		i++;
+	}
 }
 
-// int	*list_de_nombre(int n)
-// {
-// 	int *list;
-// 	int	i;
+void	print_list(int *list, int size)
+{
+	int	i;
 
-// 	i = 1;
-// 	list = ft_calloc(n, sizeof(int));
-// 	if (!list)
-// 		return ((int *)0);
-// 	while (i <= n)
-// 	{
-// 		list[i] = i;
-// 		i++;
-// 	}
-// 	return (list);
-// }
+	i = 0;
+	while (i < size)
+		printf("%d\n", list[i++]);
+}
 
-// void	nombres_au_pif(int n, int seed)
-// {
-// 	int *list;
-// 	int	i;
+int	genrand(int max)
+{
+	static int	r;
+	int			ret;
 
-// 	list = list_de_nombre(n);
-// 	while (i < n)
-// 	{
-// 		printf("%d\n", seed);
-// 		i++;
-// 	}
-// }
+	r = (r * 9301 + 49297) % 233280;
+	ret = r % max;
+	if (ret < 0)
+		ret += max;
+	return (ret);
+}
 
-// int main(int argc, char **argv)
-// {
-// 	(void) argc;
-// 	if (argv && argv[1])
-// 		nombres_dans_lordre(ft_atoi(argv[1]));
-// 	return (0);
-// }
+int	ft_swap(int *a1, int *a2)
+{
+	int	tmp;
+
+	tmp = *a1;
+	*a1 = *a2;
+	*a2 = tmp;
+	return (0);
+}
+
+void	swap_rand(int sens, int max, int *list)
+{
+	int	r;
+
+	while (sens != 0)
+	{
+		r = genrand(max - 1);
+		if (sens == 1)
+		{
+			if (list[r] > list[r + 1])
+				sens = ft_swap(&list[r], &list[r + 1]);
+		}
+		else if (list[r] < list[r + 1])
+			sens = ft_swap(&list[r], &list[r + 1]);
+	}
+}
+
+int main(int argc, char **argv)
+{
+	if (argc < 3)
+		return (1);
+	int *liste;
+	int n = ft_atoi(argv[1]);
+	int cible = ft_atoi(argv[2]);
+	int ptot = (n * (n - 1)) / 2;
+	int paire = (ptot * cible) / 100;
+	
+	liste = malloc((1 + n) * sizeof(int));
+	if (argv && argv[1])
+		nombres_dans_lordre(liste, n);
+	//printf("\ninversion de = %d paires \n\n", ptot * cible / 100);
+	for (int i = 0; i < (paire); i++)
+		swap_rand(-1, n, liste);
+	print_list(liste, n);
+	// printf("desordre = %d", disorder(liste, n));
+	return (0);
+}
+*/
