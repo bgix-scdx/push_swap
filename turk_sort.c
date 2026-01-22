@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:10:23 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:31:13 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,24 @@ int	n_iem(t_stack s, int n)
 
 int	find_target_index(t_stack a, int val, int max)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	
 	while (n_iem(a, i) > n_iem(a, i - 1))
 		i++;
 	while (n_iem(a, i) < val && i < a.size)
-		i++;	
-	
+		i++;
 	if (i > a.size / 2)
 		return (i - a.size);
-	printf("i = %d a.s_max = %d\n", i, a.size);
+	ft_printf("i = %d a.s_max = %d\n", i, a.size);
 	return (i);
 }
 
-typedef	struct s_cost
-{
-	int costA;
-	int costB;
-	int bestA;
-	int bestB;
-	int cost;
-	int	bestcost;
-}t_cost;
-
 void	searcha(int val, t_all *all)
 {
-	int i;
-	t_stack s;
-	
+	int		i;
+	t_stack	s;
+
 	i = 0;
 	s = all->a;
 	while (s.array[i] != val)
@@ -73,10 +61,10 @@ void	searcha(int val, t_all *all)
 void	turk_sort(t_all *all)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	t_cost	c;
-	int i;
-	
+	int		i;
+
 	a = &all->a;
 	b = &all->b;
 	while (a->size > 3)
@@ -89,44 +77,43 @@ void	turk_sort(t_all *all)
 		deb(all, 1);
 		while (i < b->size)
 		{
-			c.costB = i;
+			c.cost_b = i;
 			if (i > b->size / 2)
-				c.costB = i - b->size;
-			c.costA = find_target_index(*a, n_iem(*b, i), all->s_max);
-			c.cost = abs(c.costA) + abs(c.costB);
-			if (c.costA * c.costB > 0)
-				c.cost = max(abs(c.costA), abs(c.costB));
-			printf("n = %d costA = %d costB = %d tot = %d\n", n_iem(*b, i), c.costA, c.costB, c.cost);	
+				c.cost_b = i - b->size;
+			c.cost_a = find_target_index(*a, n_iem(*b, i), all->s_max);
+			c.cost = abs(c.cost_a) + abs(c.cost_b);
+			if (c.cost_a * c.cost_b > 0)
+				c.cost = max(abs(c.cost_a), abs(c.cost_b));
+			ft_printf("n = %d costA = %d costB = %d tot = %d\n", n_iem(*b, i), c.cost_a, c.cost_b, c.cost);
 			if (c.cost < c.bestcost)
 			{
 				c.bestcost = c.cost;
-				c.bestA = c.costA;
-				c.bestB = c.costB;
+				c.best_a = c.cost_a;
+				c.best_b = c.cost_b;
 			}
-			i++;	
+			i++;
 		}
-		printf("costi = %d best A = %d best B = %d\n", c.bestcost, c.bestA, c.bestB);
-		while (c.bestA < 0 && c.bestB < 0)
+		ft_printf("costi = %d best A = %d best B = %d\n", c.bestcost, c.best_a, c.best_b);
+		while (c.best_a < 0 && c.best_b < 0)
 		{
-			c.bestA += rrr(all);
-			c.bestB += 1;
+			c.best_a += rrr(all);
+			c.best_b += 1;
 		}
-		while (c.bestA > 0 && c.bestB > 0)
+		while (c.best_a > 0 && c.best_b > 0)
 		{
-			c.bestA -= rr(all);
-			c.bestB -= 1;
+			c.best_a -= rr(all);
+			c.best_b -= 1;
 		}
-		while (c.bestA < 0)
-			c.bestA += rra(all);
-		while (c.bestA > 0)
-			c.bestA -= ra(all);
-		while (c.bestB < 0)
-			c.bestB += rrb(all);
-		while (c.bestB > 0)
-			c.bestB -= rb(all);
+		while (c.best_a < 0)
+			c.best_a += rra(all);
+		while (c.best_a > 0)
+			c.best_a -= ra(all);
+		while (c.best_b < 0)
+			c.best_b += rrb(all);
+		while (c.best_b > 0)
+			c.best_b -= rb(all);
 		pa(all);
 	}
 	while (a->array[a->top] != 1)
 		searcha(1, all);
 }
-               

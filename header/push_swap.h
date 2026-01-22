@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:00:01 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 13:27:32 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_cost
+{
+	int	cost_a;
+	int	cost_b;
+	int	best_a;
+	int	best_b;
+	int	cost;
+	int	bestcost;
+}	t_cost;
 
 typedef struct s_screen
 {
