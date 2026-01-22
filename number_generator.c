@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:56:51 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 11:21:15 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 12:38:40 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,16 @@ void	nombres_dans_lordre(int *liste, int n)
 
 void	print_list(int *list, int size)
 {
-	int	i;
-
-	i = 0;
+	int i = 0;
+	
 	while (i < size)
 		printf("%d\n", list[i++]);
 }
 
-int	genrand(int max)
+int genrand(int max)
 {
 	static int	r;
-	int			ret;
+	int 		ret;
 
 	r = (r * 9301 + 49297) % 233280;
 	ret = r % max;
@@ -47,7 +46,7 @@ int	genrand(int max)
 
 int	ft_swap(int *a1, int *a2)
 {
-	int	tmp;
+	int tmp;
 
 	tmp = *a1;
 	*a1 = *a2;
@@ -55,10 +54,10 @@ int	ft_swap(int *a1, int *a2)
 	return (0);
 }
 
-void	swap_rand(int sens, int max, int *list)
+void swap_rand(int sens, int max, int *list)
 {
-	int	r;
-
+	int r;
+	
 	while (sens != 0)
 	{
 		r = genrand(max - 1);

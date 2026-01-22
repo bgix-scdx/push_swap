@@ -6,13 +6,13 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 11:06:26 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 13:00:01 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define NFLAGS 6            
+# define NFLAGS 6              
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -74,6 +74,7 @@ void	print_move_check(t_all *all, const char *move);
 void	pusha(t_all *all, t_stack *a, t_stack *b);
 void	disorder_sample(int *a, int max);
 void	push(t_stack *src, t_stack *dst);
+void	search(int val, t_all *all);
 void	deb(t_all *all, int n);
 void	turk_sort(t_all *all);
 void	put_moves(t_all all);
@@ -85,18 +86,18 @@ void	chunk(t_all *all);
 void	radix(t_all *all);
 void	swap(t_stack *s);
 void	bench(t_all all);
-void	rra(t_all *all);
-void	rrb(t_all *all);
-void	rrr(t_all *all);
-void	sa(t_all *all);
-void	sb(t_all *all);
-void	ss(t_all *all);
-void	pb(t_all *all);
-void	pa(t_all *all);
-void	ra(t_all *all);
-void	rb(t_all *all);
-void	rr(t_all *all);
 
+int		rra(t_all *all);
+int		rrb(t_all *all);
+int		rrr(t_all *all);
+int		sa(t_all *all);
+int		sb(t_all *all);
+int		ss(t_all *all);
+int		pb(t_all *all);
+int		pa(t_all *all);
+int		ra(t_all *all);
+int		rb(t_all *all);
+int		rr(t_all *all);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 int		stack_init(int size_max, int size, t_stack *new);
 int		parser(int argc, char **argv, t_all *all);

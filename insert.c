@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:51:38 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 11:17:23 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 12:55:27 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,9 @@ void	search(int val, t_all *all)
 	}
 }
 
-/*repush everithing in the stack a, 
-it start by searching the higher value to push it
-but if the next is found first it is push and then will be swap in a*/
 void	pusha(t_all *all, t_stack *a, t_stack *b)
 {
-	int		i;
+	int	i;
 
 	i = b->size;
 	while (b->size != 0)
@@ -63,9 +60,6 @@ void	pusha(t_all *all, t_stack *a, t_stack *b)
 	}
 }
 
-/*push everithing in stack a 
-(exept 3 last elements that are sorted with opti_3) 
-then repush in the right order */
 void	insert(t_all *all)
 {
 	t_stack	*a;

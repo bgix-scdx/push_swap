@@ -6,11 +6,18 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 14:54:38 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 12:49:13 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
+
+int	r_free(int *new)
+{
+	if (new)
+		free(new);
+	return (0);
+}
 
 int	opti_3(t_all *all, int *l)
 {
@@ -26,15 +33,17 @@ int	opti_3(t_all *all, int *l)
 	new[2] = l[(i + 2) % 3];
 	new = normaliser(new, 3);
 	if (new[0] == 1 && new[1] == 3)
-		return (sa(all), ra(all), 1);
+		return (sa(all), ra(all), 1 + r_free(new));
 	else if (new[0] == 2 && new[1] == 1)
-		return (sa(all), 1);
+		return (sa(all), 1 + r_free(new));
 	else if (new[0] == 2 && new[1] == 3)
-		return (rra(all), 1);
+		return (rra(all), 1 + r_free(new));
 	else if (new[0] == 3 && new[1] == 2)
-		return (sa(all), rra(all), 1);
+		return (sa(all), rra(all), 1 + r_free(new));
 	else if (new[0] == 3 && new[1] == 1)
-		return (ra(all), 1);
+		return (ra(all), 1 + r_free(new));
+	if (new)
+		free(new);
 	return (1);
 }
 
