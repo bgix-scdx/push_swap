@@ -26,12 +26,15 @@ SOURCES = 	printf/utils/ft_printf_undec.c\
 			printf/ft_printf.c\
 			bench/screen.c\
 			normaliser.c\
+			turk_sort.c\
 			push_swap.c\
 			minisort.c\
 			disorder.c\
 			insert.c\
+			chunk.c\
 			radix.c\
 			utils.c\
+			math.c\
 			pars.c\
 
 B_SOURCES =	bonus/checker_bonus.c \
@@ -72,7 +75,7 @@ rng: clean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./a.out --bench $$(cat $(LISTNAME))
+	./a.out --bench --simple $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"

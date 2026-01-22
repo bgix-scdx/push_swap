@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:49 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:24:20 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/21 15:18:06 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ typedef struct s_t
 	int	s_max;
 }	t_stack;
 
+typedef struct s_r
+{
+	int	a;
+	int	b;
+	int	c;
+	int	d;
+	int	e;
+}	t_r;
+
 t_stack	stack_init(int size_max, int size);
 
 void	*ft_memmove(void *dest, void *src, int n);
@@ -43,5 +52,7 @@ int		mod_ifier(int a, int size, int max);
 int		plus_mod(int n, int val, int mod);
 int		rotate(t_stack *s, int val);
 int		ft_atoi(char *nptr);
+
+t_r		init_reserve(void);
 
 #endif

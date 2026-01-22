@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 14:50:54 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 10:25:40 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define NFLAGS 6
 
 //  █████  ████████ ████████ ███████ ███    ██ ████████ ██  ██████  ███    ██     ██ ██ 
 // ██   ██    ██       ██    ██      ████   ██    ██    ██ ██    ██ ████   ██     ██ ██ 
@@ -40,14 +41,6 @@ typedef struct s_t
 	int	s_max;
 }	t_stack;
 
-//sert a sauvegarder la liste de coup avant de l'envoyer a l'optimiseur
-typedef struct s_l
-{
-	char	*buffer;
-	int		len;
-	int		size;
-}	t_l;
-
 //info utile a tout le programes, notament les differente stack
 typedef struct s_s
 {
@@ -58,7 +51,6 @@ typedef struct s_s
 	int			moves;
 	int			*list_move;
 	int			s_max;
-	t_l			list;
 }	t_all;
 
 //stock de variables pour plusieurs fonctions
@@ -81,50 +73,54 @@ typedef struct s_norm
 	int	prev_min;
 }	t_norm;
 
-t_screen	*screen_init(t_screen *screen, int w, int h, char bg);
-char		*ft_substr(char *s, unsigned int start, size_t len);
-void		*ft_calloc(int nmemb, int size);
-char		*nxc(int n, char c);
-char		*ft_itoa(int n);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+void	*ft_calloc(int nmemb, int size);
+char	*nxc(int n, char c);
+char	*ft_itoa(int n);
 
-void		print_move_check(t_all *all, const char *move);
-void		disorder_sample(int *a, int max);
-void		push(t_stack *src, t_stack *dst);
-void		deb(t_all *all, int n);
-void		put_moves(t_all all);
-void		radix_3(t_all *all);
-void		insert(t_all *all);
-void		opti_4(t_all *all);
-void		opti_5(t_all *all);
-void		radix(t_all *all);
-void		swap(t_stack *s);
-void		bench(t_all all);
-void		rra(t_all *all);
-void		rrb(t_all *all);
-void		rrr(t_all *all);
-void		sa(t_all *all);
-void		sb(t_all *all);
-void		ss(t_all *all);
-void		pb(t_all *all);
-void		pa(t_all *all);
-void		ra(t_all *all);
-void		rb(t_all *all);
-void		rr(t_all *all);
+void	print_move_check(t_all *all, const char *move);
+void	pusha(t_all *all, t_stack *a, t_stack *b);
+void	disorder_sample(int *a, int max);
+void	push(t_stack *src, t_stack *dst);
+void	deb(t_all *all, int n);
+void	turk_sort(t_all *all);
+void	put_moves(t_all all);
+void	radix_3(t_all *all);
+void	insert(t_all *all);
+void	opti_4(t_all *all);
+void	opti_5(t_all *all);
+void	chunk(t_all *all);
+void	radix(t_all *all);
+void	swap(t_stack *s);
+void	bench(t_all all);
+void	rra(t_all *all);
+void	rrb(t_all *all);
+void	rrr(t_all *all);
+void	sa(t_all *all);
+void	sb(t_all *all);
+void	ss(t_all *all);
+void	pb(t_all *all);
+void	pa(t_all *all);
+void	ra(t_all *all);
+void	rb(t_all *all);
+void	rr(t_all *all);
 
-int			ft_strncmp(const char *s1, const char *s2, int n);
-int			stack_init(int size_max, int size, t_stack *new);
-int			parser(int argc, char **argv, t_all *all);
-int			*normaliser(int *list, int size);
-int			ft_printf(const char *a, ...);
-int			rotate(t_stack *s, int val);
-int			opti_3(t_all *all, int *l);
-int			disorder(int *a, int max);
-int			count_move(t_all all);
-int			count_move(t_all all);
-int			l_add(t_l *l, char c);
-int			ft_atoi(char *nptr);
-int			list_init(t_l *l);
-int			ft_strlen(char *s);
+int		ft_strncmp(const char *s1, const char *s2, int n);
+int		stack_init(int size_max, int size, t_stack *new);
+int		parser(int argc, char **argv, t_all *all);
+int		*normaliser(int *list, int size);
+int		ft_printf(const char *a, ...);
+int		rotate(t_stack *s, int val);
+int		opti_3(t_all *all, int *l);
+int		disorder(int *a, int max);
+int		count_move(t_all all);
+int 	max(int n1, int n2);
+int		ft_sqrt(int n);
+int		abs(int n);
+//int			l_add(t_l *l, char c);
+int		ft_atoi(char *nptr);
+//int			list_init(t_l *l);
+int		ft_strlen(char *s);
 
 t_r			init_reserve(void);
 

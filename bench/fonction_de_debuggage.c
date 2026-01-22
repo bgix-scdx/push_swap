@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonction_de_debuggage.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:08:14 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/21 15:16:37 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,6 @@ void	deb(t_all *all, int n)
 	if (n >= 2)
 		print_all_stacks(all->a, all->b);
 	d = disorder(all->a.array, all->s_max);
-	if (d == 100)
-		put_pos(all->screen, 3, 3, '1');
-	put_pos(all->screen, 4, 3, '0' + (d % 100) / 10);
-	put_pos(all->screen, 5, 3, '0' + (d % 10));
-	put_pos(all->screen, 6, 3, '%');
 }
 
 int	count_move(t_all all)

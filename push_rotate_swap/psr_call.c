@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   psr_call.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:27:05 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/21 15:15:02 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ void	push(t_stack *src, t_stack *dst)
 		src->top = src->top % src->size;
 }
 
-// a	tmp;
-// d t;
-// e n;
 void	swap(t_stack *s)
 {
 	t_r	i;
@@ -54,6 +51,16 @@ void	swap(t_stack *s)
 	s->array[i.e] = i.a;
 }
 
+
+int	rotate(t_stack *s, int val)
+{
+	if (s->size == 0)
+	return (1);
+	s->top = (s->top + val) % s->size;
+	if (s->top < 0)
+	s->top += s->size;
+	return (val);
+}
 // all->flags[4] est un numbre magique
 //faudrais trouver un moyen déclairsire
 //si c'est possible du genre all->flags["bench"]
@@ -63,14 +70,4 @@ void	print_move_check(t_all *all, const char *move)
 		return ;
 	else
 		ft_printf("%s\n", move);
-}
-
-int	rotate(t_stack *s, int val)
-{
-	if (s->size == 0)
-		return (1);
-	s->top = (s->top + val) % s->size;
-	if (s->top < 0)
-		s->top += s->size;
-	return (val);
 }
