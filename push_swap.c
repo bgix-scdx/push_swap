@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 10:25:00 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:55:49 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char *adapt(char *flags, int disorder, t_all *all)
 		else if (disorder < 50)
 			return (chunk(all), "chunk_sort         O(n√n)");
 		else
-			return (radix(all), "radix_sort         O(nlogn)");
+			return (turk_sort(all), "radix_sort         O(nlogn)");
 	}
 	if (flags[0] == '1')
 		return (insert(all), "insertion_sort     O(n²)");
@@ -100,6 +100,7 @@ int	main(int argc, char **argv)
 		return (2);
 	all->screen->disorder = disorder(all->a.array, all->s_max);
 	all->screen->mod_difficulty = fonction_launch(all);
+	deb(all, 1);
 	if (all->flags[4] == '1')
 		bench(*all);
 	free(all);
