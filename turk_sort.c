@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 15:47:20 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/23 10:38:14 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	n_iem(t_stack s, int n)
 int	find_target_index(t_stack a, int val, int max)
 {
 	int	i;
-	int smallest_greater;
+	int	smallest_greater;
 	int	there;
 
 	i = 0;
@@ -66,7 +66,8 @@ void	searcha(int val, t_all *all)
 	}
 }
 
-//gestion du malloc un peu bizzar parce que je veux pas perdre trop de lignes pour l'instant
+//gestion du malloc un peu bizzar
+//je veux pas perdre trop de lignes pour l'instant
 void	turk_sort(t_all *all)
 {
 	t_stack	*a;
@@ -93,7 +94,8 @@ void	turk_sort(t_all *all)
 			c.cost = abs(c.cost_a) + abs(c.cost_b);
 			if (c.cost_a * c.cost_b > 0)
 				c.cost = max(abs(c.cost_a), abs(c.cost_b));
-			ft_printf("n = %d costA = %d costB = %d tot = %d\n", n_iem(*b, i), c.cost_a, c.cost_b, c.cost);
+			ft_printf("n = %d costA = %d costB = %d tot = %d\n", \
+n_iem(*b, i), c.cost_a, c.cost_b, c.cost);
 			if (c.cost < c.bestcost)
 			{
 				c.bestcost = c.cost;
@@ -102,7 +104,8 @@ void	turk_sort(t_all *all)
 			}
 			i++;
 		}
-		ft_printf("costi = %d best A = %d best B = %d\n", c.bestcost, c.best_a, c.best_b);
+		ft_printf("costi = %d best A = %d best B = %d\n", \
+c.bestcost, c.best_a, c.best_b);
 		while (c.best_a < 0 && c.best_b < 0)
 		{
 			c.best_a += rrr(all);
