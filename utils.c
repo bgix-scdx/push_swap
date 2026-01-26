@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:11:20 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 14:50:43 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,34 +78,9 @@ void	*ft_calloc(int nmemb, int size)
 	return (tab);
 }
 
-/*
- * Init the stacks.
- *
- * @param  size it is the initial size of the stack 0 for B and arg_c - 1 for A
- * @param  size_max argc - 1 
- * @param  {int} optfilter the index of
-the column used to add a filter to the chart
- * @return return the initialisated stack.
- */
-int	stack_init(int size_max, int size, t_stack *new)
+/*retourne la n'iem valeur dans la stack s a partir du top
+Utilise un modulo fait par mes soins*/
+int	n_iem(t_stack s, int n)
 {
-	new->top = 0;
-	new->size = size;
-	new->s_max = size_max;
-	new->array = ft_calloc(size_max + 1, sizeof(int));
-	if (!new->array)
-		return (write(1, "malloc failed\n", 15), -1);
-	return (0);
-}
-
-t_r	init_reserve(void)
-{
-	t_r	new;
-
-	new.a = 0;
-	new.b = 0;
-	new.c = 0;
-	new.d = 0;
-	new.e = 0;
-	return (new);
+	return (s.array[mod(s.top + n, s.size)]);
 }

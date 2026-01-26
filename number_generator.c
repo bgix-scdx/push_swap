@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   number_generator.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:56:51 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 12:38:40 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 14:46:49 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
-/*
+
 void	nombres_dans_lordre(int *liste, int n)
 {
 	int	i;
@@ -84,11 +84,11 @@ int main(int argc, char **argv)
 	liste = malloc((1 + n) * sizeof(int));
 	if (argv && argv[1])
 		nombres_dans_lordre(liste, n);
-	//printf("\ninversion de = %d paires \n\n", ptot * cible / 100);
+	//ft_printf("\ninversion de = %d paires \n\n", ptot * cible / 100);
 	for (int i = 0; i < (paire); i++)
 		swap_rand(-1, n, liste);
 	print_list(liste, n);
-	// printf("desordre = %d", disorder(liste, n));
+	// ft_printf("desordre = %d", disorder(liste, n));
 	return (0);
 }
-*/
+

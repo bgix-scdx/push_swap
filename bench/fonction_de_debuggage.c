@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonction_de_debuggage.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:02:44 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 15:02:11 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,21 +93,4 @@ void	deb(t_all *all, int n)
 	if (n >= 2)
 		print_all_stacks(all->a, all->b);
 	d = disorder(all->a.array, all->s_max);
-}
-
-void	put_moves(t_all all)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("\n----------------------------------------------------------------\
---------------\n");
-	ft_printf("|  sa  |  sb  |  ss  |  pa  |  pb  |  ra  |  rb  |  rr  | rra  | r\
-rb  | rrr  |\n");
-	while (i < 11)
-		ft_printf("|  %d   ", all.list_move[i++]);
-	ft_printf("|\n---------------------------------------------------------------\
----------------\n");
-	all.moves = count_move(all);
-	ft_printf("moves total = %d\n", all.moves);
 }

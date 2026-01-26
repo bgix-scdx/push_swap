@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   psr_call.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:02:06 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 15:01:15 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,6 @@ int	rotate(t_stack *s, int val)
 	return (val);
 }
 
-// all->flags[4] est un numbre magique
-//faudrais trouver un moyen déclairsire
-//si c'est possible du genre all->flags["bench"]
 void	print_move_check(t_all *all, const char *move)
 {
 	if (!move || all->flags[4] == '1')

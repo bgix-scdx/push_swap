@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:12:01 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 15:25:11 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/22 12:58:14 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	colone_one(int i, t_all all)
 \033[1;37m%d%%\033[0m", all.screen->disorder) + 1 - 25);
 	else if (i == 15)
 		i = (ft_printf("\033[1;37m║    \033[1;31mPost Sorting : \
-\033[1;37m0%%\033[0m") + 1 - 25);
+\033[1;37m%d%%\033[0m", disorder(all.a.array, all.a.s_max)) + 1 - 25);
 	else if (i == 18)
 		i = (ft_printf("\033[1;37m║\033[0m") + 1 - 11);
 	free(mod);

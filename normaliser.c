@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normaliser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 14:58:55 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/24 09:46:34 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,41 +47,3 @@ int	*normaliser(int *list, int size)
 	}
 	return (free(list), new);
 }
-
-//permet d'ajouter un carctere a un t_l sans risque 
-//de depasser la taille du buffer
-// int	l_add(t_l *l, char c)
-// {
-// 	char	*new;
-// 	int		i;
-
-// 	if (!l->buffer)
-// 		return (-1);
-// 	if (l->len + 1 > l->size)
-// 	{
-// 		l->size *= 10;
-// 		new = malloc(l->size);
-// 		if (!new)
-// 			return (write(1, "realloc error", 14), -1);
-// 		i = -1;
-// 		while (++i < l->len)
-// 			new[i] = l->buffer[i];
-// 		free(l->buffer);
-// 		l->buffer = new;
-// 	}
-// 	l->buffer[l->len] = c;
-// 	return (l->size);
-// }
-
-//initialise le t_l
-//Dedans je stock la taille dispo (size) et la taille effective (len)
-//Et bien sur le buffer lui meme
-// int	list_init(t_l *l)
-// {
-// 	l->len = 0;
-// 	l->size = 100;
-// 	l->buffer = malloc(l->size);
-// 	if (!l->buffer)
-// 		return (write(1, "malloc list init failed\n", 25), -1);
-// 	return (0);
-// }

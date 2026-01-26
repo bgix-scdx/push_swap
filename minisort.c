@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:49:13 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/24 09:52:52 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
-
-int	r_free(int *new)
-{
-	if (new)
-		free(new);
-	return (0);
-}
 
 int	opti_3(t_all *all, int *l)
 {
@@ -28,23 +21,23 @@ int	opti_3(t_all *all, int *l)
 		return (write(1, "wrong function\n", 16), -1);
 	i = all->a.top;
 	new = malloc(3 * sizeof(int));
+	if (!new)
+		return (0);
 	new[0] = l[i];
 	new[1] = l[(i + 1) % 3];
 	new[2] = l[(i + 2) % 3];
 	new = normaliser(new, 3);
 	if (new[0] == 1 && new[1] == 3)
-		return (sa(all), ra(all), 1 + r_free(new));
+		return (free(new), sa(all), ra(all), 1);
 	else if (new[0] == 2 && new[1] == 1)
-		return (sa(all), 1 + r_free(new));
+		return (free(new), sa(all), 1);
 	else if (new[0] == 2 && new[1] == 3)
-		return (rra(all), 1 + r_free(new));
+		return (free(new), rra(all), 1);
 	else if (new[0] == 3 && new[1] == 2)
-		return (sa(all), rra(all), 1 + r_free(new));
+		return (free(new), sa(all), rra(all), 1);
 	else if (new[0] == 3 && new[1] == 1)
-		return (ra(all), 1 + r_free(new));
-	if (new)
-		free(new);
-	return (1);
+		return (free(new), ra(all), 1);
+	return (free(new), 0);
 }
 
 void	opti_4(t_all *all)

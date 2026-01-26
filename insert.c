@@ -3,62 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   insert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:51:38 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 12:55:27 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 14:44:15 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
-
-//performs the most appropriate operation to find the value i in stack B
-//will likely go haywire if i is not present/in case of duplicates etc...
-void	search(int val, t_all *all)
-{
-	int		i;
-	t_stack	s;
-
-	i = 0;
-	s = all->b;
-	while (s.array[i] != val)
-		i++;
-	if (s.top < (s.size / 2))
-	{
-		if (i < s.top || i > ((s.top + (s.size / 2)) % s.size))
-			rrb(all);
-		else
-			rb(all);
-	}
-	else
-	{
-		if ((i > s.top) || (i < (s.top - (s.size / 2))))
-			rb(all);
-		else
-			rrb(all);
-	}
-}
-
-void	pusha(t_all *all, t_stack *a, t_stack *b)
-{
-	int	i;
-
-	i = b->size;
-	while (b->size != 0)
-	{
-		if (b->array[b->top] == i)
-		{
-			pa(all);
-			if (a->array[a->top] > a->array[(a->top + 1) % a->size])
-				sa(all);
-			i = b->size;
-		}
-		else if (b->array[b->top] == i - 1)
-			pa(all);
-		else
-			search(i, all);
-	}
-}
 
 void	insert(t_all *all)
 {

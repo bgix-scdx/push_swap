@@ -3,40 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 14:38:50 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 14:48:23 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
-
-t_all	*all_init(int argc, char **argv)
-{
-	t_all		*all;
-	int			i;
-	int			flags_count;
-	int			e;
-
-	all = malloc(sizeof(t_all));
-	if (!all)
-		return (write(1, "erreur malloc t_all init", 24), (t_all *)0);
-	all->moves = 0;
-	all->list_move = ft_calloc(11, sizeof(int));
-	all->flags = ft_calloc(NFLAGS, 1);
-	flags_count = parser(argc, argv, all);
-	e = stack_init(all->s_max, all->s_max, &all->a);
-	e += stack_init(all->s_max, 0, &all->b);
-	all->screen = malloc(sizeof(t_screen));
-	if (e < 0 || flags_count == -1)
-		return (write(1, "init failed\n", 13), (t_all *)0);
-	i = 0;
-	while (i++ < all->s_max + 1)
-		all->a.array[i - 1] = ft_atoi(argv[i + flags_count]);
-	all->a.array = normaliser(all->a.array, all->a.s_max);
-	return (all);
-}
 
 char	*adapt(char *flags, int disorder, t_all *all)
 {
@@ -46,18 +20,18 @@ char	*adapt(char *flags, int disorder, t_all *all)
 	if (flags[3] == '1' || sum > '1' || sum == 0)
 	{
 		if (disorder < 20)
-			return (insert(all), "insertion_sort     O(n²)");
+			return (turk_sort(all), "turk_sort           O(n²)");
 		else if (disorder < 50)
 			return (chunk(all), "chunk_sort         O(n√n)");
 		else
-			return (turk_sort(all), "radix_sort         O(nlogn)");
+			return (radix(all), "radix_sort         O(nlogn)");
 	}
 	if (flags[0] == '1')
-		return (insert(all), "insertion_sort     O(n²)");
+		return (turk_sort(all), "turk_sort           O(n²)");
 	if (flags[1] == '1')
-		return (chunk(all), "chunk_sort         O(n√n)");
+		return (chunk(all), "chunk_sort          O(n√n)");
 	if (flags[2] == '1')
-		return (turk_sort(all), "radix_sort         O(nlogn)");
+		return (radix(all), "radix_sort         O(nlogn)");
 	return ("Undefined    ");
 }
 
@@ -100,7 +74,6 @@ int	main(int argc, char **argv)
 		return (free_all(all), 1);
 	all->screen->mod_difficulty = fonction_launch(all);
 	if (all->flags[4] == '1')
-		bench(*all);
-	free_all(all);
-	return (0);
+		return (bench(*all), free_all(all), 0);
+	return (free_all(all), 0);
 }

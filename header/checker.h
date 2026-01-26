@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:49 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/21 15:18:06 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 14:58:56 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CHECKER_H
 
 # include "../printf/ft_printf.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -48,8 +47,6 @@ void	swap(t_stack *s);
 int		rotate_launch(char *inst, t_stack *A, t_stack *B);
 int		push_launch(char *inst, t_stack *A, t_stack *B);
 int		swap_launch(char *inst, t_stack *A, t_stack *B);
-int		mod_ifier(int a, int size, int max);
-int		plus_mod(int n, int val, int mod);
 int		rotate(t_stack *s, int val);
 int		ft_atoi(char *nptr);
 

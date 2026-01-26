@@ -34,6 +34,7 @@ SOURCES = 	printf/utils/ft_printf_undec.c\
 			chunk.c\
 			radix.c\
 			utils.c\
+			init.c\
 			math.c\
 			pars.c\
 
