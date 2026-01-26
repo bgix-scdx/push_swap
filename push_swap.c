@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 14:48:23 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:37:54 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	*fonction_launch(t_all *all)
 
 void	free_all(t_all *all)
 {
+	if (!all)
+		return ;
 	free(all->a.array);
 	free(all->b.array);
 	free(all->list_move);
@@ -65,10 +67,10 @@ int	main(int argc, char **argv)
 	t_all		*all;
 
 	all = all_init(argc - 1, argv);
-	if (all->s_max == 0 || !all->a.array)
-		return (write(0, "Error\n", 6), free_all(all), 0);
 	if (!all)
 		return (2);
+	if (!all->a.array)
+		return (write(0, "Error\n", 6), free_all(all), 0);
 	all->screen->disorder = disorder(all->a.array, all->s_max);
 	if (all->screen->disorder == -1)
 		return (free_all(all), 1);

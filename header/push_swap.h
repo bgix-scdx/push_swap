@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 15:03:49 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:14:42 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # define NFLAGS 6   
-# ifndef 	INTMAX
-#  define	INTMAX 2147483647
+# ifndef INTMAX
+#  define INTMAX 2147483647
 # endif
 
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_s t_all;
+typedef struct s_s	t_all;
 
 typedef struct s_cost
 {
@@ -47,8 +47,8 @@ typedef struct s_t
 	int	size;
 	int	s_max;
 	int	(*rotate)(t_all *all);
-	int (*rrotate)(t_all *all);
-	int (*push)(t_all *all);
+	int	(*rrotate)(t_all *all);
+	int	(*push)(t_all *all);
 }	t_stack;
 
 //info utile a tout le programes, notament les differente stack
@@ -91,7 +91,7 @@ char	*ft_itoa(int n);
 
 void	print_move_check(t_all *all, const char *move);
 void	pusha(t_all *all, t_stack *a, t_stack *b);
-void	search(int val, t_all *all, t_stack);
+void	search(int val, t_all *all, t_stack s);
 void	disorder_sample(int *a, int max);
 void	push(t_stack *src, t_stack *dst);
 void	*ft_calloc(int nmemb, int size);
@@ -121,7 +121,7 @@ int		count_move(t_all all);
 int		ft_atoi(char *nptr);
 int		max(int n1, int n2);
 int		ft_strlen(char *s);
-int 	mod(int p, int q);
+int		mod(int p, int q);
 int		rra(t_all *all);
 int		rrb(t_all *all);
 int		rrr(t_all *all);

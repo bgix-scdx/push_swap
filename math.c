@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:17:36 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 15:17:44 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:04:48 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	max(int n1, int n2)
 	return (n2);
 }
 
-int mod(int p, int q)
+int	mod(int p, int q)
 {
 	p = p % q;
 	if (p < 0)

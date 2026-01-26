@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 09:42:28 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/24 09:42:59 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:06:57 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	stack_init(int size_max, int size, t_stack *new)
 		new->rotate = &rb;
 		new->rrotate = &rrb;
 	}
-	else 
+	else
 	{
 		new->push = &pa;
 		new->rotate = &ra;
@@ -40,7 +40,7 @@ int	stack_init(int size_max, int size, t_stack *new)
 	}
 	new->array = ft_calloc(size_max + 1, sizeof(int));
 	if (!new->array)
-		return (write(1, "malloc failed\n", 15), -1);
+		return (write(0, "malloc failed\n", 15), -1);
 	return (0);
 }
 
@@ -70,10 +70,12 @@ t_all	*all_init(int argc, char **argv)
 	all->list_move = ft_calloc(11, sizeof(int));
 	all->flags = ft_calloc(NFLAGS, 1);
 	flags_count = parser(argc, argv, all);
+	if (flags_count == -1)
+		return ((t_all *)0);
 	e = stack_init(all->s_max, all->s_max, &all->a);
 	e += stack_init(all->s_max, 0, &all->b);
 	all->screen = malloc(sizeof(t_screen));
-	if (e < 0 || flags_count == -1)
+	if (e < 0)
 		return (write(1, "init failed\n", 13), (t_all *)0);
 	i = 0;
 	while (i++ < all->s_max + 1)

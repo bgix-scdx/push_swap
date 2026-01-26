@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:58:58 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 14:46:03 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:04:02 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-//performs the most appropriate operation to find the value i in stack B
-//will likely go haywire if i is not present/in case of duplicates etc...
+/*performs the most appropriate operation to find the value i in stack B
+will likely go haywire if i is not present/in case of duplicates etc...*/
 void	search(int val, t_all *all, t_stack s)
 {
 	int	top;
 	int	i;
-	
+
 	i = 1;
 	top = n_iem(s, 0);
 	while (top != val)
@@ -52,7 +52,7 @@ void	pusha(t_all *all, t_stack *a, t_stack *b)
 
 void	push_chunk_a(t_all *all)
 {
-	int there;
+	int	there;
 	int	low;
 
 	low = ft_sqrt(all->s_max);
@@ -66,7 +66,7 @@ void	push_chunk_a(t_all *all)
 		}
 		else
 			ra(all);
-	}	
+	}
 }
 
 void	chunk(t_all *all)

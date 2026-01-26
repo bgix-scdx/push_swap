@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/21 15:17:42 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:42:37 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	*ft_memmove(void *dest, void *src, int n)
 
 void	*ft_calloc(int nmemb, int size)
 {
-	size_t	true_size;
+	int		true_size;
 	char	*tab;
-	size_t	i_max;
+	int		i_max;
 
 	i_max = 2147483647;
 	true_size = size * nmemb;

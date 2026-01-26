@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:36:41 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:27:17 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ il peut etre effacer sans perturber le fonctionement du code*/
 
 char	*pad(int n)
 {
-	char	pad[6];
-
 	if (n < 10)
 		return ("     ");
 	if (n < 100)

@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:05:16 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 13:05:18 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:33:12 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	radix(t_all *all)
 {
 	int	i;
 	int	e;
-	int	top;
 
 	e = 1;
 	while (e <= all->s_max && disorder(all->a.array, all->s_max) != 0)

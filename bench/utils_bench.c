@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:18:26 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/19 16:21:00 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:30:52 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ static char	*ft_itoa2(int n, int sign)
 
 char	*ft_itoa(int n)
 {
-	char	*tab;
 	int		sign;
 
 	if (n == 0)

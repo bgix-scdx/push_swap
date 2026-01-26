@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:51:01 by bgix              #+#    #+#             */
-/*   Updated: 2025/11/25 13:15:08 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:30:07 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ static void	putnbr(int *length, int arg)
 void	ft_printf_dec(int *length, va_list lst)
 {
 	int		arg;
-	size_t	len_dup;
 
-	len_dup = *length;
 	arg = va_arg(lst, int);
 	if (arg <= -2147483648)
 	{
@@ -55,6 +53,4 @@ void	ft_printf_dec(int *length, va_list lst)
 		return ;
 	}
 	putnbr(length, arg);
-	if (len_dup > *length)
-		*length = -1;
 }

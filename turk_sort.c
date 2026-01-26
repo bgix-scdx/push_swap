@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 14:48:58 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:32:52 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-int	find_target_index(t_stack a, int val, int max)
+int	find_target_index(t_stack a, int val)
 {
 	int	i;
 	int	smallest;
-	int smallest_greater;
+	int	smallest_greater;
 	int	there;
 
 	i = 0;
@@ -25,7 +25,6 @@ int	find_target_index(t_stack a, int val, int max)
 	while (i < a.size)
 	{
 		there = n_iem(a, i);
-		// ft_printf("smgr = %d val = %d there = %d\n", smallest_greater, val, there);
 		if (there < smallest_greater && there > val)
 			smallest_greater = there;
 		if (there < smallest)
@@ -37,7 +36,6 @@ int	find_target_index(t_stack a, int val, int max)
 	i = 0;
 	while (n_iem(a, i) != smallest_greater)
 		i++;
-	// ft_printf("i = %d  gret = %d\n", i, smallest_greater);
 	if (i > a.size / 2)
 		return (i - a.size);
 	return (i);
@@ -65,7 +63,7 @@ void	process(t_cost *c, t_all *all)
 		c->best_b -= rb(all);
 }
 
-void	find_best(t_cost *c, t_stack *a, t_stack *b, t_all *all)
+void	find_best(t_cost *c, t_stack *a, t_stack *b)
 {
 	int		i;
 
@@ -76,11 +74,10 @@ void	find_best(t_cost *c, t_stack *a, t_stack *b, t_all *all)
 		c->cost_b = i;
 		if (i > b->size / 2)
 			c->cost_b = i - b->size;
-		c->cost_a = find_target_index(*a, n_iem(*b, i), all->s_max);
+		c->cost_a = find_target_index(*a, n_iem(*b, i));
 		c->cost = abs(c->cost_a) + abs(c->cost_b);
 		if (c->cost_a * c->cost_b > 0)
 			c->cost = max(abs(c->cost_a), abs(c->cost_b));
-		// ft_printf("n = %d costA = %d costB = %d tot = %d\n", n_iem(*b, i), c->cost_a, c->cost_b, c->cost);
 		if (c->cost < c->bestcost)
 		{
 			c->bestcost = c->cost;
@@ -91,25 +88,23 @@ void	find_best(t_cost *c, t_stack *a, t_stack *b, t_all *all)
 	}
 }
 
-//gestion du malloc un peu bizzar parce que je veux pas perdre trop de lignes pour l'instant
 void	turk_sort(t_all *all)
 {
 	t_stack	*a;
 	t_stack	*b;
 	t_cost	c;
-	int somme;
+	int		sum;
 
 	a = &all->a;
 	b = &all->b;
 	while (all->a.size > 3)
-		pb(all);	
+		pb(all);
 	opti_3(all, a->array);
-	somme = 0;
+	sum = 0;
 	while (b->size != 0)
 	{
-		find_best(&c, a, b, all);
-		somme += c.bestcost;
-		// ft_printf("costi = %d best A = %d best B = %d\n", c.bestcost, c.best_a, c.best_b);
+		find_best(&c, a, b);
+		sum += c.bestcost;
 		process(&c, all);
 		pa(all);
 	}

@@ -3,10 +3,11 @@ AR = ar
 AR_PARAMS = rc
 
 CC = cc
-CFLAGS = # -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -D BUFFER_SIZE=19
 LEAKFLAGS = -fsanitize=address -g3 -fno-omit-frame-pointer
 
 FILE_COUNTER = .file_count
+BFILE_COUNTER = .bfile_count
 
 OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
@@ -38,7 +39,14 @@ SOURCES = 	printf/utils/ft_printf_undec.c\
 			math.c\
 			pars.c\
 
-B_SOURCES =	bonus/checker_bonus.c \
+B_SOURCES =	printf/ft_printf.c\
+			printf/utils/ft_printf_base.c\
+			printf/utils/ft_printf_void.c\
+			printf/utils/ft_printf_char.c\
+			printf/utils/ft_printf_str.c\
+			printf/utils/ft_printf_dec.c\
+			printf/utils/ft_printf_undec.c\
+			bonus/checker_bonus.c \
 			bonus/fct_lauch_bonus.c \
 			bonus/fcts_de_base_bonus.c \
 			bonus/utils_bonus.c
@@ -46,11 +54,12 @@ B_SOURCES =	bonus/checker_bonus.c \
 OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
-LISTNAME = numbers.txt
-TEMPLIST = temp.txt
 ARG = 100
-NAME = push_swap.out
+TEMPLIST = .tmp
+LISTNAME = numbers
 
+NAME = push_swap
+BNAME = checker
 ###############################
 #   ___ _       _           _ #
 #  / _ \ | ___ | |__   __ _| |#
@@ -59,24 +68,13 @@ NAME = push_swap.out
 #\____/|_|\___/|_.__/ \__,_|_|#
 ###############################
 
-all: $(NAME)
+all: $(NAME) bonus
 	if [ -f $(FILE_COUNTER) ]; then \
 		echo "\033[1;34m ✅ $$(wc -l < $(FILE_COUNTER) | xargs) \033[1;36mFiles compiled\033[0m"; \
 	else \
 		echo "\033[1;34m ⛔️ No modifications found.\033[0m"; \
 	fi; \
 	rm -f $(FILE_COUNTER)
-	$(CC) $(CFLAGS) $(NAME)
-	rm -f $(NAME)
-
-rng: clean all
-	echo "\033[1;32m 👉 Executing using a list of size $(ARG) \033[0m"
-	for i in $$(seq 1 $(ARG)); do\
-		echo $$i >> $(TEMPLIST); \
-	done
-	shuf $(TEMPLIST) >> $(LISTNAME)
-	rm -f $(TEMPLIST)
-	valgrind --leak-check=full --track-origins=yes -s ./a.out --bench --simple $$(cat $(LISTNAME))
 
 help:
 	echo "\033[1;36m 🦈 bgix.\033[0m"
@@ -106,13 +104,13 @@ clean:
 	rm -rf $(OBJFOLDER)
 	rm -rf $(BOBJFOLDER)
 	rm -rf $(FILE_COUNTER)
-	rm -f $(LISTNAME)
-	rm -f $(TEMPLIST)
-	rm -rf "a.out"
+	rm -rf $(TEMPLIST)
+	rm -rf $(LISTNAME)
 
 fclean:	clean
 	echo "\033[1;32m 🧨 $(NAME) removed.\033[0m"; \
 	rm -f $(NAME)
+	rm -f $(BNAME)
 
 re: fclean all
 
@@ -155,7 +153,7 @@ $(OBJFOLDER)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	$(AR) $(AR_PARAMS) $(NAME) $(OBJECTS) 
+	$(CC) $(params) $(OBJECTS) -o $(NAME)
 
 sanitize: all
 	echo "\033[1;32m 👉 Executing\033[0m"
@@ -188,18 +186,20 @@ exec: re
 ###############################
 
 $(BOBJFOLDER)/%.o: %.c
-	echo 1 >> $(FILE_COUNTER) 
+	echo 1 >> $(BFILE_COUNTER) 
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all_bonus: $(B_OBJECTS)
-	$(AR) $(AR_PARAMS) $(NAME) $(B_OBJECTS)
-	if [ -f $(FILE_COUNTER) ]; then \
-		echo "\033[1;34m ✅ $$(wc -l < $(FILE_COUNTER) | xargs) \033[1;36mFiles compiled ⭐️\033[0m"; \
+$(BNAME): $(B_OBJECTS)
+	$(CC) $(params) $(B_OBJECTS) -o  $(BNAME)
+
+bonus: $(BNAME)
+	if [ -f $(BFILE_COUNTER) ]; then \
+		echo "\033[1;34m ✅ $$(wc -l < $(BFILE_COUNTER) | xargs) \033[1;36mFiles compiled ⭐️\033[0m"; \
 	else \
-		echo "\033[1;34m ⛔️ No modifications found ⭐️\033[0m"; \
+		echo "\033[1;34m ⛔️ No modifications found. ⭐️\033[0m"; \
 	fi; \
-	rm -f $(FILE_COUNTER)
+	rm -f $(BFILE_COUNTER)
 
 exec_bonus: re_bonus
 	echo "\033[1;32m 👉 Executing ⭐️\033[0m"
@@ -255,7 +255,23 @@ ginit:
 
 gall: gadd gcommit gpush
 
+                                      
+#########################################
+# ▄████▄ ▄▄▄▄▄▄ ▄▄ ▄▄ ▄▄▄▄▄ ▄▄▄▄   ▄▄▄▄ #
+# ██  ██   ██   ██▄██ ██▄▄  ██▄█▄ ███▄▄ #
+# ▀████▀   ██   ██ ██ ██▄▄▄ ██ ██ ▄▄██▀ #
+#########################################      
+
+rng: fclean all
+	echo "\033[1;32m 👉 Executing using a list of size $(ARG) \033[0m"
+	for i in $$(seq 1 $(ARG)); do\
+		echo $$i >> $(TEMPLIST); \
+	done
+	shuf $(TEMPLIST) >> $(LISTNAME)
+	rm -f $(TEMPLIST)
+	./$(NAME) --bench --simple $$(cat $(LISTNAME))
+
 bgix:
 	bgix
 
-.PHONY: all clean fclean re exec
+.PHONY: all bonus clean fclean re exec

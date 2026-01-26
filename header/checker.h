@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:49 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 14:58:56 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/26 15:43:38 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	put_lists(t_stack A, t_stack B);
 void	deb(t_stack A, t_stack B);
 void	swap(t_stack *s);
 
+int		ft_printf(const char *a, ...);
 int		rotate_launch(char *inst, t_stack *A, t_stack *B);
 int		push_launch(char *inst, t_stack *A, t_stack *B);
 int		swap_launch(char *inst, t_stack *A, t_stack *B);

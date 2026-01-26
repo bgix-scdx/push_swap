@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 08:59:27 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 13:16:02 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 15:58:11 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	parser(int argc, char **argv, t_all *all)
 	while (is_flag(argv[i]))
 	{
 		if (flag_fill(argv[i], all, &flags_count) == -1)
-			return (write(1, "wrong flag input please retry\n", 31), -1);
+			return (write(0, "wrong flag input please retry\n", 31), -1);
 		i++;
 	}
 	all->s_max = argc - flags_count;

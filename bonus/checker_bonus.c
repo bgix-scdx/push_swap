@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:35 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/19 16:28:53 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:41:34 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ le nombre d'operations effectuer*/
 //deb(*A, *B);
 int	translate_inst(int size, char *inst, t_stack *A, t_stack *B)
 {
-	char	*str;
 	int		i;
 	int		e;
 	int		n;
@@ -79,6 +78,7 @@ char	*verif(t_stack A, t_stack B)
 	int	tmp;
 	int	current;
 
+	i = 0;
 	tmp = 0;
 	if (B.size != 0)
 		return ("B n'est pas vide");
@@ -112,8 +112,8 @@ int	main(int arg_c, char **argv)
 	inst = read_the_file(&size);
 	n = translate_inst(size, inst, &stacka, &stackb);
 	if (n == -1)
-		printf("error invalid input\n");
+		ft_printf("error invalid input\n");
 	else
-		printf("\napres %d operations: %s\n", n, verif(stacka, stackb));
+		ft_printf("apres %d operations: %s\n", n, verif(stacka, stackb));
 	return (free(inst), free(stacka.array), free(stackb.array), 0);
 }

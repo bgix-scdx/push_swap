@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:12:01 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/22 12:58:14 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:31:18 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	colone_one(int i, t_all all)
 int	colone_two(int i, t_all all)
 {
 	int	*l;	
-	int	steps;
 
 	l = all.list_move;
 	if (i == 3)
