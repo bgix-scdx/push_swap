@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by bgix, vgerthof*
+*This project has been created as part of the 42 curriculum by bgix, vgerthof.*
 
 **Description :**
 
@@ -12,9 +12,8 @@
 		- complex -> Same as above with the complex sorting algorythm.
 		- adaptive -> Run the program with a algorythm program depending on the disorder percentage.
 
-	Our sorting algorithm must sort a defined table under 2000 steps for 100 numbers and 12.000 steps for 500 numbers
-
-		Steps are some functions that move, rotate or switch value in a stack
+	Our sorting algorithm must sort a defined table under 2000 steps for 100 numbers and 12.000 steps for 500 numbers.
+	Steps are some functions that move, rotate or switch value in a stacks.
 
 	In case of an error, Error must be displayed with a new line.
 	Not using the bench settings must display every moves done in the terminala while running.
