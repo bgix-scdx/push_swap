@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:16:28 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/10 15:11:23 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:06:46 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	arg_check(char asc, int *length, va_list lst)
 	else if (asc == 'X')
 		ft_printf_base(length, lst, mal, true);
 	else if (asc == '%')
-		*length += write(1, "%", 1);
+		*length += write(2, "%", 1);
 	else
 		*length = -1;
 	free(mal);
@@ -78,7 +78,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			len += write(1, &str[i], 1);
+			len += write(2, &str[i], 1);
 		i++;
 	}
 	va_end(lst);

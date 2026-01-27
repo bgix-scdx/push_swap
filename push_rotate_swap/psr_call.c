@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   psr_call.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 15:01:15 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/27 13:34:13 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	rotate(t_stack *s, int val)
 
 void	print_move_check(t_all *all, const char *move)
 {
+	visualize(all);
 	if (!move || all->flags[4] == '1')
 		return ;
 	else

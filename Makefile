@@ -13,19 +13,21 @@ OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
 
 SOURCES = 	printf/utils/ft_printf_undec.c\
-			bench/bench.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
+			bench/fonction_de_debuggage.c\
 			printf/utils/ft_printf_str.c\
 			printf/utils/ft_printf_dec.c\
 			push_rotate_swap/psr_call.c\
 			push_rotate_swap/mini_p.c\
 			push_rotate_swap/mini_r.c\
 			push_rotate_swap/mini_s.c\
+			visualizer/visualizer.c\
 			bench/utils_bench.c\
 			printf/ft_printf.c\
 			bench/screen.c\
+			bench/bench.c\
 			normaliser.c\
 			turk_sort.c\
 			push_swap.c\
@@ -39,22 +41,23 @@ SOURCES = 	printf/utils/ft_printf_undec.c\
 			math.c\
 			pars.c\
 
-B_SOURCES =	printf/ft_printf.c\
-			printf/utils/ft_printf_base.c\
-			printf/utils/ft_printf_void.c\
-			printf/utils/ft_printf_char.c\
-			printf/utils/ft_printf_str.c\
-			printf/utils/ft_printf_dec.c\
-			printf/utils/ft_printf_undec.c\
-			bonus/checker_bonus.c \
-			bonus/fct_lauch_bonus.c \
+B_SOURCES =	printf/utils/ft_printf_undec.c \
+			printf/utils/ft_printf_base.c \
+			printf/utils/ft_printf_void.c \
+			printf/utils/ft_printf_char.c \
+			printf/utils/ft_printf_str.c \
+			printf/utils/ft_printf_dec.c \
 			bonus/fcts_de_base_bonus.c \
-			bonus/utils_bonus.c
+			bonus/fct_lauch_bonus.c \
+			bonus/checker_bonus.c \
+			bonus/utils_bonus.c \
+			printf/ft_printf.c \
 
 OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
 ARG = 100
+SET = --adaptive
 TEMPLIST = .tmp
 LISTNAME = numbers
 
@@ -269,7 +272,7 @@ rng: fclean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./$(NAME) --bench --simple $$(cat $(LISTNAME))
+	./$(NAME) --bench $(SET) $$(cat $(LISTNAME))
 
 bgix:
 	bgix

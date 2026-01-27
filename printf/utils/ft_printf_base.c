@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:05:17 by bgix              #+#    #+#             */
-/*   Updated: 2025/11/25 13:14:14 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 11:08:53 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static void	negative(char *baka_base, int arg, int *length, int base_len)
 	while (i >= 0)
 	{
 		if (result[i])
-			*length += write(1, &result[i], 1);
+			*length += write(2, &result[i], 1);
 		else
-			*length += write(1, &baka_base[0], 1);
+			*length += write(2, &baka_base[0], 1);
 		i--;
 	}
 }
@@ -86,5 +86,5 @@ void	ft_printf_base(int *length, va_list lst, char *baka_base, bool is_maj)
 		arg /= base_len;
 	}
 	while (i-- > 0)
-		*length += write(1, &result[i], 1);
+		*length += write(2, &result[i], 1);
 }

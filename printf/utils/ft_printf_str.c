@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:51:01 by bgix              #+#    #+#             */
-/*   Updated: 2025/11/25 13:16:04 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 11:07:30 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	ft_printf_str(int *length, va_list lst)
 	arg = va_arg(lst, char *);
 	if (!arg)
 	{
-		*length += write(1, "(null)", 6);
+		*length += write(2, "(null)", 6);
 		return ;
 	}
-	*length += write(1, arg, ft_strlen(arg));
+	*length += write(2, arg, ft_strlen(arg));
 }

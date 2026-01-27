@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 09:42:28 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 17:06:57 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 11:17:48 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	stack_init(int size_max, int size, t_stack *new)
 	}
 	new->array = ft_calloc(size_max + 1, sizeof(int));
 	if (!new->array)
-		return (write(0, "malloc failed\n", 15), -1);
+		return (write(2, "Error\n", 7), -1);
 	return (0);
 }
 
@@ -65,7 +65,7 @@ t_all	*all_init(int argc, char **argv)
 
 	all = malloc(sizeof(t_all));
 	if (!all)
-		return (write(1, "erreur malloc t_all init", 24), (t_all *)0);
+		return (write(2, "Erreur\n", 24), (t_all *)0);
 	all->moves = 0;
 	all->list_move = ft_calloc(11, sizeof(int));
 	all->flags = ft_calloc(NFLAGS, 1);
@@ -76,7 +76,7 @@ t_all	*all_init(int argc, char **argv)
 	e += stack_init(all->s_max, 0, &all->b);
 	all->screen = malloc(sizeof(t_screen));
 	if (e < 0)
-		return (write(1, "init failed\n", 13), (t_all *)0);
+		return (write(2, "Error\n", 13), (t_all *)0);
 	i = 0;
 	while (i++ < all->s_max + 1)
 		all->a.array[i - 1] = ft_atoi(argv[i + flags_count]);

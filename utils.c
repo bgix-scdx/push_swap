@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:33:34 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 11:58:27 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,29 @@ Utilise un modulo fait par mes soins*/
 int	n_iem(t_stack s, int n)
 {
 	return (s.array[mod(s.top + n, s.size)]);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, int n)
+{
+	int		i;
+	size_t	s1_len;
+	size_t	s2_len;
+
+	s1_len = ft_strlen((char *)s1);
+	s2_len = ft_strlen((char *)s2);
+	i = 0;
+	if (n < 0)
+	{
+		if (s1_len > s2_len)
+			n = s1_len;
+		else
+			n = s2_len;
+	}
+	while (i < n)
+	{
+		if ((unsigned char) s1[i] != (unsigned char) s2[i])
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		i++;
+	}
+	return (0);
 }

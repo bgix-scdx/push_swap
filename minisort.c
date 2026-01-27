@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/24 09:52:52 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:16:39 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	opti_3(t_all *all, int *l)
 	int	*new;
 
 	if (all->a.size != 3)
-		return (write(1, "wrong function\n", 16), -1);
+		return (write(2, "wrong function\n", 16), -1);
 	i = all->a.top;
 	new = malloc(3 * sizeof(int));
 	if (!new)
@@ -44,7 +44,7 @@ void	opti_4(t_all *all)
 {
 	if (all->s_max != 4)
 	{
-		write(1, "wrong function\n", 16);
+		write(2, "Error\n", 16);
 		return ;
 	}
 	while (all->a.size > 3)
@@ -67,7 +67,7 @@ void	opti_5(t_all *all)
 
 	if (all->a.size != 5)
 	{
-		write(1, "wrong function\n", 16);
+		write(2, "Error\n", 16);
 		return ;
 	}
 	while (all->a.size > 3)

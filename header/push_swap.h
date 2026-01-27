@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:14:42 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 13:20:02 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	*ft_calloc(int nmemb, int size);
 void	push_chunk_a(t_all *all);
 void	deb(t_all *all, int n);
 void	turk_sort(t_all *all);
+void	visualize(t_all *all);
 void	radix_3(t_all *all);
 void	insert(t_all *all);
 void	opti_4(t_all *all);
@@ -120,6 +121,7 @@ int		n_iem(t_stack s, int n);
 int		count_move(t_all all);
 int		ft_atoi(char *nptr);
 int		max(int n1, int n2);
+int		spe_char(char *str);
 int		ft_strlen(char *s);
 int		mod(int p, int q);
 int		rra(t_all *all);

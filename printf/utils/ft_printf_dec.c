@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:51:01 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/26 16:30:07 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 11:07:52 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	putnbr(int *length, int arg)
 	i = 0;
 	if (arg < 0)
 	{
-		*length += write(1, "-", 1);
+		*length += write(2, "-", 1);
 		arg *= -1;
 	}
 	while (arg >= 10)
@@ -32,7 +32,7 @@ static void	putnbr(int *length, int arg)
 	num[i] = (arg % 10) + '0';
 	while (i >= 0)
 	{
-		*length += write(1, &num[i], 1);
+		*length += write(2, &num[i], 1);
 		i--;
 	}
 }
@@ -44,12 +44,12 @@ void	ft_printf_dec(int *length, va_list lst)
 	arg = va_arg(lst, int);
 	if (arg <= -2147483648)
 	{
-		*length += write(1, "-2147483648", 11);
+		*length += write(2, "-2147483648", 11);
 		return ;
 	}
 	else if (arg >= 2147483647)
 	{
-		*length += write(1, "2147483647", 10);
+		*length += write(2, "2147483647", 10);
 		return ;
 	}
 	putnbr(length, arg);
