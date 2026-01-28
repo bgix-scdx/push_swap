@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 14:46:50 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:08:39 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,5 @@ void	print_move_check(t_all *all, const char *move)
 	if (!move || all->flags[4] == '1')
 		return ;
 	else
-		write(2, move, 4);
+		write(1, move, 3);
 }

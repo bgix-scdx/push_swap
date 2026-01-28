@@ -270,7 +270,7 @@ rng: fclean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./$(NAME) --medium --bench $$(cat $(LISTNAME))
+	./$(NAME) --medium $$(cat $(LISTNAME))
 
 bgix:
 	bgix

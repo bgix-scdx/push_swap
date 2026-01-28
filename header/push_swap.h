@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 13:20:02 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/28 13:41:49 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*nxc(int n, char c);
 char	*ft_itoa(int n);
 
+void	greedy_return(t_stack	*a, t_stack	*b, t_all *all);
 void	print_move_check(t_all *all, const char *move);
 void	pusha(t_all *all, t_stack *a, t_stack *b);
 void	search(int val, t_all *all, t_stack s);
@@ -97,8 +98,8 @@ void	push(t_stack *src, t_stack *dst);
 void	*ft_calloc(int nmemb, int size);
 void	push_chunk_a(t_all *all);
 void	deb(t_all *all, int n);
+void	visualise(t_all *all);
 void	turk_sort(t_all *all);
-void	visualize(t_all *all);
 void	radix_3(t_all *all);
 void	insert(t_all *all);
 void	opti_4(t_all *all);
@@ -121,7 +122,6 @@ int		n_iem(t_stack s, int n);
 int		count_move(t_all all);
 int		ft_atoi(char *nptr);
 int		max(int n1, int n2);
-int		spe_char(char *str);
 int		ft_strlen(char *s);
 int		mod(int p, int q);
 int		rra(t_all *all);
