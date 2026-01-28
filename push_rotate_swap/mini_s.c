@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 11:04:48 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 14:39:40 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	sa(t_all *all)
 	swap(&all->a);
 	all->list_move[0] += 1;
 	all->moves += 1;
-	print_move_check(all, "sa");
+	print_move_check(all, "sa\n\0");
 	return (1);
 }
 
@@ -26,7 +26,7 @@ int	sb(t_all *all)
 	swap(&all->b);
 	all->list_move[1] += 1;
 	all->moves += 1;
-	print_move_check(all, "sb");
+	print_move_check(all, "sb\n\0");
 	return (1);
 }
 
@@ -36,6 +36,6 @@ int	ss(t_all *all)
 	swap(&all->b);
 	all->list_move[2] += 1;
 	all->moves += 1;
-	print_move_check(all, "ss");
+	print_move_check(all, "ss\n\0");
 	return (1);
 }

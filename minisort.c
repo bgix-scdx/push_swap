@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 11:16:39 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 17:59:58 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	opti_3(t_all *all, int *l)
 	int	*new;
 
 	if (all->a.size != 3)
-		return (write(2, "wrong function\n", 16), -1);
+		return (write(1, "wrong function\n", 16), -1);
 	i = all->a.top;
 	new = malloc(3 * sizeof(int));
 	if (!new)
@@ -44,7 +44,7 @@ void	opti_4(t_all *all)
 {
 	if (all->s_max != 4)
 	{
-		write(2, "Error\n", 16);
+		write(1, "wrong function\n", 16);
 		return ;
 	}
 	while (all->a.size > 3)
@@ -67,13 +67,13 @@ void	opti_5(t_all *all)
 
 	if (all->a.size != 5)
 	{
-		write(2, "Error\n", 16);
+		write(1, "wrong function\n", 16);
 		return ;
 	}
 	while (all->a.size > 3)
 	{
-		top = all->a.array[all->a.top];
-		top1 = all->a.array[(all->a.top + 1) % all->a.size];
+		top = n_iem(all->a, 0);
+		top1 = n_iem(all->a, 1);
 		if (top == 1 || top == 2)
 			pb(all);
 		else if (top != 1 && top != 2 && top1 != 1 && top1 != 2)

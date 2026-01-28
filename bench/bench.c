@@ -6,7 +6,7 @@
 /*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 11:16:48 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/26 16:27:17 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	print_all_stacks(t_stack A, t_stack B)
 	int	i;
 
 	i = 0;
-	write(2, "\n", 1);
+	write(1, "\n", 1);
 	while (i < A.s_max)
 		ft_printf("| %d ", A.array[i++]);
 	ft_printf("|  topA = %d sizeA = %d s_max = %d\n", A.top, A.size, A.s_max);

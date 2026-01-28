@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/24 09:46:34 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/27 15:59:08 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	*normaliser(int *list, int size)
 	int		*new;
 
 	new = malloc((size + 1) * sizeof(int));
-	if (!new || check_dup(list, size) == 0)
+	if (!new)
 		return (NULL);
 	a.n = 0;
 	a.prev_min = -2147483648;

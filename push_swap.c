@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 13:33:45 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 17:03:42 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ char	*adapt(char *flags, int disorder, t_all *all)
 	if (flags[3] == '1' || sum > '1' || sum == 0)
 	{
 		if (disorder < 20)
-			return (turk_sort(all), "turk_sort       O(n²)");
+			return (turk_sort(all), "turk_sort           O(n²)");
 		else if (disorder < 50)
-			return (chunk(all), "chunk_sort        O(n√n)");
+			return (chunk(all), "chunk_sort         O(n√n)");
 		else
 			return (radix(all), "radix_sort         O(nlogn)");
 	}
 	if (flags[0] == '1')
-		return (turk_sort(all), "turk_sort          O(n²)");
+		return (turk_sort(all), "turk_sort           O(n²)");
 	if (flags[1] == '1')
-		return (chunk(all), "chunk_sort         O(n√n)");
+		return (chunk(all), "chunk_sort          O(n√n)");
 	if (flags[2] == '1')
 		return (radix(all), "radix_sort         O(nlogn)");
 	return ("Undefined    ");
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 	if (!all)
 		return (2);
 	if (!all->a.array)
-		return (write(2, "Error\n", 6), free_all(all), 0);
+		return (write(2, "Error\n", 7), free_all(all), 0);
 	all->screen->disorder = disorder(all->a.array, all->s_max);
 	if (all->screen->disorder == -1)
 		return (free_all(all), 1);

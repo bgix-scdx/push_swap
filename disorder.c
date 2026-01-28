@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 15:20:31 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/27 15:58:55 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,6 @@ int	disorder(int *a, int max)
 	else
 		i.e = 0;
 	return (i.e);
-}
-
-int	check_dup(int *a, int max)
-{
-	int	i;
-	int	i_plus;
-
-	i = 0;
-	i_plus = 0;
-	while (i < max)
-	{
-		i_plus = 0;
-		while (i_plus < max)
-		{
-			if (i != i_plus && a[i_plus] == a[i])
-				return (0);
-			i_plus++;
-		}
-		i++;
-	}
-	return (1);
 }
 
 void	disorder_sample(int *a, int max)

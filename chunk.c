@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:58:58 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:04:02 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/28 13:48:40 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	push_chunk_a(t_all *all)
 	int	there;
 	int	low;
 
-	low = ft_sqrt(all->s_max);
+	low = 4 * ft_sqrt(all->s_max);
 	while (all->a.size > 3)
 	{
 		there = n_iem(all->a, 0);
@@ -63,15 +63,24 @@ void	push_chunk_a(t_all *all)
 		{
 			low += 1;
 			pb(all);
+			if (there % 2 == 0)
+				rb(all);
 		}
 		else
 			ra(all);
 	}
 }
 
+/*
+
+	pusha(all, &all->a, &all->b);
+
+
+*/
 void	chunk(t_all *all)
 {
 	push_chunk_a(all);
 	opti_3(all, all->a.array);
-	pusha(all, &all->a, &all->b);
+	// pusha(all, &all->a, &all->b);
+	greedy_return(&all->a, &all->b, all);
 }

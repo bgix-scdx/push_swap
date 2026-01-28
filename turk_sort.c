@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:32:52 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/28 13:40:07 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,18 +88,11 @@ void	find_best(t_cost *c, t_stack *a, t_stack *b)
 	}
 }
 
-void	turk_sort(t_all *all)
+void	greedy_return(t_stack	*a, t_stack	*b, t_all *all)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_cost	c;
 	int		sum;
-
-	a = &all->a;
-	b = &all->b;
-	while (all->a.size > 3)
-		pb(all);
-	opti_3(all, a->array);
+	t_cost	c;
+	
 	sum = 0;
 	while (b->size != 0)
 	{
@@ -110,4 +103,21 @@ void	turk_sort(t_all *all)
 	}
 	while (a->array[a->top] != 1)
 		search(1, all, all->a);
+}
+
+void	turk_sort(t_all *all)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	a = &all->a;
+	b = &all->b;
+	while (all->a.size > 3)
+	{
+		pb(all);
+		if (n_iem(*b, 0) < (all->s_max / 2))
+			rb(all);
+	}
+	opti_3(all, a->array);
+	greedy_return(a, b, all);
 }
