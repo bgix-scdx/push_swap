@@ -12,21 +12,22 @@ BFILE_COUNTER = .bfile_count
 OBJFOLDER = obj
 BOBJFOLDER = bonus_obj
 
-SOURCES = 	printf/utils/ft_printf_undec.c\
+SOURCES =	printf/utils/ft_printf_undec.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
+ 			bench/fonction_de_debuggage.c\
 			printf/utils/ft_printf_str.c\
 			printf/utils/ft_printf_dec.c\
 			push_rotate_swap/psr_call.c\
 			push_rotate_swap/mini_p.c\
 			push_rotate_swap/mini_r.c\
 			push_rotate_swap/mini_s.c\
+			visualizer/visualizer.c\
 			bench/utils_bench.c\
 			printf/ft_printf.c\
 			bench/screen.c\
 			bench/bench.c\
-			visualiser.c\
 			normaliser.c\
 			turk_sort.c\
 			push_swap.c\
@@ -270,7 +271,7 @@ rng: fclean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./$(NAME) --medium $$(cat $(LISTNAME))
+	valgrind ./$(NAME) --complex --visualize --bench $$(cat $(LISTNAME))
 
 bgix:
 	bgix

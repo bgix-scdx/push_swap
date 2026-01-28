@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 08:59:27 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 16:01:26 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:37:30 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ int	flag_fill(char *s, t_all *all, int *flag_count)
 	*flag_count += cmp_update(s, "--complex", all, 2);
 	*flag_count += cmp_update(s, "--adaptive", all, 3);
 	*flag_count += cmp_update(s, "--bench", all, 4);
+	*flag_count += cmp_update(s, "--visualize", all, 5);
+	if (all->flags[5] == '1')
+		write(1, "\033c", 3);
 	if (f == *flag_count)
 		return (-1);
 	return (1);
@@ -77,7 +80,7 @@ int	parser(int argc, char **argv, t_all *all)
 	while (is_flag(argv[i]))
 	{
 		if (flag_fill(argv[i], all, &flags_count) == -1)
-			return (write(2, "wrong flag input please retry\n", 31), -1);
+			return (write(2, "Error\n", 7), -1);
 		i++;
 	}
 	all->s_max = argc - flags_count;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 13:40:07 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:37:10 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	greedy_return(t_stack	*a, t_stack	*b, t_all *all)
 {
 	int		sum;
 	t_cost	c;
-	
+
 	sum = 0;
 	while (b->size != 0)
 	{

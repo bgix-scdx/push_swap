@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:58:58 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 13:48:40 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:38:20 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,11 @@ void	push_chunk_a(t_all *all)
 }
 
 /*
-
 	pusha(all, &all->a, &all->b);
-
-
 */
 void	chunk(t_all *all)
 {
 	push_chunk_a(all);
 	opti_3(all, all->a.array);
-	// pusha(all, &all->a, &all->b);
 	greedy_return(&all->a, &all->b, all);
 }

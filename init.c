@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 09:42:28 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 17:10:57 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:37:58 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	stack_init(int size_max, int size, t_stack *new)
 	}
 	new->array = ft_calloc(size_max + 1, sizeof(int));
 	if (!new->array)
-		return (write(2, "malloc failed\n", 15), -1);
+		return (write(2, "Error\n", 7), -1);
 	return (0);
 }
 
@@ -68,7 +68,7 @@ int	init_array_a(char **argv, int flagcount, t_all *all)
 	int				i;
 	long long int	new;
 	int				k;
-	
+
 	sa = all->a.array;
 	i = 0;
 	while (i++ < all->s_max)
@@ -76,12 +76,12 @@ int	init_array_a(char **argv, int flagcount, t_all *all)
 		if (ft_strlen(argv[i + flagcount]) > 11)
 			return (-1);
 		new = ft_atoi(argv[i + flagcount]);
-		if (new < (-INTMAX - 1) || new > INTMAX)
+		if (new < (-INTMAX - 1) || new > INTMAX || new == 0)
 			return (-1);
 		k = 0;
 		while (k < i - 1)
 		{
-			if (sa[k++] == new || new == 0)
+			if (sa[k++] == new)
 				return (-1);
 		}
 		sa[i - 1] = new;
@@ -94,10 +94,10 @@ t_all	*all_init(int argc, char **argv)
 	t_all		*all;
 	int			flags_count;
 	int			e;
-	
+
 	all = malloc(sizeof(t_all));
 	if (!all)
-		return (write(2, "erreur malloc t_all init", 24), (t_all *)0);
+		return (write(2, "Error\n", 7), (t_all *)0);
 	all->moves = 0;
 	all->list_move = ft_calloc(11, sizeof(int));
 	all->flags = ft_calloc(NFLAGS, 1);
@@ -108,10 +108,9 @@ t_all	*all_init(int argc, char **argv)
 	e += stack_init(all->s_max, 0, &all->b);
 	all->screen = malloc(sizeof(t_screen));
 	if (e < 0)
-		return (write(2, "init failed\n", 13), (t_all *)0);
+		return (write(2, "Error\n", 7), (t_all *)0);
 	if (init_array_a(argv, flags_count, all) == -1)
 		return (write(2, "Error\n", 7), (t_all *)0);
 	all->a.array = normaliser(all->a.array, all->a.s_max);
 	return (all);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 13:41:49 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:29:26 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	push(t_stack *src, t_stack *dst);
 void	*ft_calloc(int nmemb, int size);
 void	push_chunk_a(t_all *all);
 void	deb(t_all *all, int n);
-void	visualise(t_all *all);
+void	visualize(t_all *all);
 void	turk_sort(t_all *all);
 void	radix_3(t_all *all);
 void	insert(t_all *all);
@@ -121,6 +121,7 @@ int		disorder(int *a, int max);
 int		n_iem(t_stack s, int n);
 int		count_move(t_all all);
 int		ft_atoi(char *nptr);
+int		spe_char(char *str);
 int		max(int n1, int n2);
 int		ft_strlen(char *s);
 int		mod(int p, int q);
