@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   customs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 09:14:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/30 17:51:11 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/02/02 13:26:35 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ is hard to justify*/
 void	ultra_opti_2000(t_all *all)
 {
 	push_chunk_a(all);
+	greedy_return(&all->a, &all->b, all);
 }

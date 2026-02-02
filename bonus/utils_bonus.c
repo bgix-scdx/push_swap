@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/30 16:40:34 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/02/02 13:12:16 by bgix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ il renvoie 1 sinon et ,et au passage le nombre dans save
 int	ft_safe_atoi(char *nptr, long long int *save)
 {
 	long long int	number;
-	int				sign;
-	int				i;
+	long long int	sign;
+	long long int	i;
 
 	i = 0;
 	number = 0;
@@ -29,7 +29,7 @@ int	ft_safe_atoi(char *nptr, long long int *save)
 		if ((nptr[i - 1] < '0' || nptr[i - 1] > '9') && nptr[i - 1] != '-')
 			return (0);
 	}
-	if (!nptr || i > 11)
+	if (!nptr || i > 12)
 		return (0);
 	if (*nptr == '-')
 	{

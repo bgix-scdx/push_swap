@@ -54,6 +54,9 @@
 		-nothing he didn't help us at all
 		-he is not even in our group
 
+	fneyer:
+		-credit for giving bgix the idea of a visualiser
+
 **Complexity :**
 
 	For the O(n²) algorithm, we use an optimized insertion sort combined with the “Turk sort” method to select the best element to push back into stack A.

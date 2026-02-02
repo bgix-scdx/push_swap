@@ -61,6 +61,7 @@ OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
 RNG_OBJECT = $(RNG_SOURCE:%.c=%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
+PARAM = --adaptive
 ARG = 100
 TEMPLIST = .tmp
 LISTNAME = numbers
@@ -277,7 +278,7 @@ rng: fclean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	./$(NAME) --test --bench $$(cat $(LISTNAME))
+	./$(NAME) --bench $(PARAM) $$(cat $(LISTNAME))
 
 rng2:
 	cc $(RNG_SOURCE) $(CFLAGS) -o numgen
