@@ -16,44 +16,49 @@ SOURCES =	printf/utils/ft_printf_undec.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
- 			bench/fonction_de_debuggage.c\
 			printf/utils/ft_printf_str.c\
 			printf/utils/ft_printf_dec.c\
 			push_rotate_swap/psr_call.c\
+			sorting_algo/greedy_utils.c\
 			push_rotate_swap/mini_p.c\
 			push_rotate_swap/mini_r.c\
+			sorting_algo/sort_utils.c\
 			push_rotate_swap/mini_s.c\
-			visualizer/visualizer.c\
+			sorting_algo/minisort.c\
+			sorting_algo/customs.c\
+			sorting_algo/radix.c\
+ 			bench/bench_utils.c\
 			bench/utils_bench.c\
+			utils/normaliser.c\
+			utils/visualizer.c\
 			printf/ft_printf.c\
+			utils/disorder.c\
 			bench/screen.c\
+			utils/utils.c\
 			bench/bench.c\
-			normaliser.c\
-			turk_sort.c\
+			utils/math.c\
+			utils/pars.c\
 			push_swap.c\
-			minisort.c\
-			disorder.c\
-			insert.c\
-			chunk.c\
-			radix.c\
-			utils.c\
 			init.c\
-			math.c\
-			pars.c\
+
+RNG_SOURCE =	number_generator.c\
+				utils/utils.c\
+				utils/math.c\
 
 B_SOURCES =	printf/ft_printf.c\
+			printf/utils/ft_printf_undec.c\
 			printf/utils/ft_printf_base.c\
 			printf/utils/ft_printf_void.c\
 			printf/utils/ft_printf_char.c\
 			printf/utils/ft_printf_str.c\
 			printf/utils/ft_printf_dec.c\
-			printf/utils/ft_printf_undec.c\
-			bonus/checker_bonus.c \
-			bonus/fct_lauch_bonus.c \
 			bonus/fcts_de_base_bonus.c \
+			bonus/fct_lauch_bonus.c \
+			bonus/checker_bonus.c \
 			bonus/utils_bonus.c
 
 OBJECTS = $(SOURCES:%.c=$(OBJFOLDER)/%.o)
+RNG_OBJECT = $(RNG_SOURCE:%.c=%.o)
 B_OBJECTS = $(B_SOURCES:%.c=$(BOBJFOLDER)/%.o)
 
 ARG = 100
@@ -113,6 +118,7 @@ fclean:	clean
 	echo "\033[1;32m 🧨 $(NAME) removed.\033[0m"; \
 	rm -f $(NAME)
 	rm -f $(BNAME)
+	rm -f numgen
 
 re: fclean all
 
@@ -154,7 +160,7 @@ $(OBJFOLDER)/%.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(MAIN_OBJECT)
 	$(CC) $(params) $(OBJECTS) -o $(NAME)
 
 sanitize: all
@@ -271,7 +277,17 @@ rng: fclean all
 	done
 	shuf $(TEMPLIST) >> $(LISTNAME)
 	rm -f $(TEMPLIST)
-	valgrind ./$(NAME) --complex --visualize --bench $$(cat $(LISTNAME))
+	./$(NAME) --test --bench $$(cat $(LISTNAME))
+
+rng2:
+	cc $(RNG_SOURCE) $(CFLAGS) -o numgen
+
+valgrind_check: fclean all bonus rng2
+	valgrind ./$(NAME) --simple 2 5 4 6 3 1
+	valgrind ./$(NAME) --bench 5 4 8 6 2 3
+	valgrind ./$(NAME) --bench 5 4 4
+	./$(NAME) --simple 2 5 4 6 3 1 | valgrind ./checker 2 5 4 6 3 1
+	valgrind ./numgen 10 25
 
 bgix:
 	bgix

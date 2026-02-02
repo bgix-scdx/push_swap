@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 09:42:28 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:37:58 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/29 13:45:37 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,7 @@ int	init_array_a(char **argv, int flagcount, t_all *all)
 	i = 0;
 	while (i++ < all->s_max)
 	{
-		if (ft_strlen(argv[i + flagcount]) > 11)
-			return (-1);
-		new = ft_atoi(argv[i + flagcount]);
-		if (new < (-INTMAX - 1) || new > INTMAX || new == 0)
+		if (ft_safe_atoi(argv[i + flagcount], &new) == 0)
 			return (-1);
 		k = 0;
 		while (k < i - 1)
@@ -108,9 +105,9 @@ t_all	*all_init(int argc, char **argv)
 	e += stack_init(all->s_max, 0, &all->b);
 	all->screen = malloc(sizeof(t_screen));
 	if (e < 0)
-		return (write(2, "Error\n", 7), (t_all *)0);
+		return (write(2, "Error\n", 7), free_all(all), (t_all *)0);
 	if (init_array_a(argv, flags_count, all) == -1)
-		return (write(2, "Error\n", 7), (t_all *)0);
+		return (write(2, "Error\n", 7), free_all(all), (t_all *)0);
 	all->a.array = normaliser(all->a.array, all->a.s_max);
 	return (all);
 }

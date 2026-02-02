@@ -3,24 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 13:59:41 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:33:34 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 17:23:23 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
-
-//un petit atoi 
-int	ft_atoi(char *nptr)
+#include "../header/push_swap.h"
+/*un atoi qui renvoie 0 si la valeur ne tien pas dans un int
+il renvoie 1 sinon et ,et au passage le nombre dans save
+*/
+int	ft_safe_atoi(char *nptr, long long int *save)
 {
-	int	sign;
-	int	number;
+	long long int	number;
+	long long int	sign;
+	long long int	i;
 
+	i = 0;
 	number = 0;
 	sign = 1;
-	if (!nptr)
+	while (nptr[i++])
+	{
+		if ((nptr[i - 1] < '0' || nptr[i - 1] > '9') && nptr[i - 1] != '-')
+			return (0);
+	}
+	if (!nptr || i > 12)
 		return (0);
 	if (*nptr == '-')
 	{
@@ -28,11 +36,11 @@ int	ft_atoi(char *nptr)
 		nptr++;
 	}
 	while (*nptr >= '0' && *nptr <= '9')
-	{
-		number = 10 * number + *nptr - 48;
-		nptr++;
-	}
-	return (sign * number);
+		number = 10 * number + *(nptr++) - 48;
+	*save = (sign * number);
+	if (*save > 2147483647 || *save < -2147483648)
+		return (0);
+	return (1);
 }
 
 void	*ft_memmove(void *dest, void *src, int n)
@@ -83,4 +91,27 @@ Utilise un modulo fait par mes soins*/
 int	n_iem(t_stack s, int n)
 {
 	return (s.array[mod(s.top + n, s.size)]);
+}
+
+//un petit atoi 
+int	ft_atoi(char *nptr)
+{
+	int	sign;
+	int	number;
+
+	number = 0;
+	sign = 1;
+	if (!nptr)
+		return (0);
+	if (*nptr == '-')
+	{
+		sign *= -1;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		number = 10 * number + *nptr - 48;
+		nptr++;
+	}
+	return (sign * number);
 }

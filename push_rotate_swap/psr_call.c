@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   psr_call.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:25:17 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 19:11:25 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,5 @@ void	print_move_check(t_all *all, const char *move)
 {
 	if (all->flags[5] == '1')
 		visualize(all);
-	else if (!move || all->flags[4] == '1')
-		return ;
-	else
-		write(1, move, ft_strlen((char *) move));
+	write(1, move, ft_strlen((char *) move));
 }

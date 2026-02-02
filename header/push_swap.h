@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:06:23 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:29:26 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 17:50:03 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define NFLAGS 6   
+# define NFLAGS 10
 # ifndef INTMAX
 #  define INTMAX 2147483647
 # endif
@@ -89,17 +89,20 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*nxc(int n, char c);
 char	*ft_itoa(int n);
 
-void	greedy_return(t_stack	*a, t_stack	*b, t_all *all);
 void	print_move_check(t_all *all, const char *move);
+void	find_best(t_cost *c, t_stack *a, t_stack *b);
 void	pusha(t_all *all, t_stack *a, t_stack *b);
 void	search(int val, t_all *all, t_stack s);
 void	disorder_sample(int *a, int max);
 void	push(t_stack *src, t_stack *dst);
 void	*ft_calloc(int nmemb, int size);
+void	process(t_cost *c, t_all *all);
+void	ultra_opti_2000(t_all *all);
 void	push_chunk_a(t_all *all);
+void	naive_greedy(t_all *all);
 void	deb(t_all *all, int n);
 void	visualize(t_all *all);
-void	turk_sort(t_all *all);
+void	free_all(t_all *all);
 void	radix_3(t_all *all);
 void	insert(t_all *all);
 void	opti_4(t_all *all);
@@ -109,12 +112,15 @@ void	radix(t_all *all);
 void	swap(t_stack *s);
 void	bench(t_all all);
 
+int		greedy_return(t_stack	*a, t_stack	*b, t_all *all);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 int		stack_init(int size_max, int size, t_stack *new);
+int		ft_safe_atoi(char *nptr, long long int *save);
 int		parser(int argc, char **argv, t_all *all);
 int		*normaliser(int *list, int size);
 int		ft_printf(const char *a, ...);
 int		rotate(t_stack *s, int val);
+int		genrand(int max, int seed);
 int		opti_3(t_all *all, int *l);
 int		check_dup(int *a, int max);
 int		disorder(int *a, int max);

@@ -6,11 +6,11 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:47:25 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 15:58:55 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/30 09:36:14 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	disorder(int *a, int max)
 {

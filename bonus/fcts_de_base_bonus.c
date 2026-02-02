@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fcts_de_base_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:22:09 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/22 12:59:17 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 16:38:05 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,14 @@ int	rotate(t_stack *s, int val)
 	if (s->top < 0)
 		s->top += s->size;
 	return (val);
+}
+
+void	free_all(t_all *all)
+{
+	if (all->inst)
+		free(all->inst);
+	if (all->a.array)
+		free(all->a.array);
+	if (all->b.array)
+		free(all->b.array);
 }

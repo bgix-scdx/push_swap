@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   turk_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:10:03 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:37:10 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:34:28 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	find_target_index(t_stack a, int val)
 {
@@ -86,38 +86,4 @@ void	find_best(t_cost *c, t_stack *a, t_stack *b)
 		}
 		i++;
 	}
-}
-
-void	greedy_return(t_stack	*a, t_stack	*b, t_all *all)
-{
-	int		sum;
-	t_cost	c;
-
-	sum = 0;
-	while (b->size != 0)
-	{
-		find_best(&c, a, b);
-		sum += c.bestcost;
-		process(&c, all);
-		pa(all);
-	}
-	while (a->array[a->top] != 1)
-		search(1, all, all->a);
-}
-
-void	turk_sort(t_all *all)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	a = &all->a;
-	b = &all->b;
-	while (all->a.size > 3)
-	{
-		pb(all);
-		if (n_iem(*b, 0) < (all->s_max / 2))
-			rb(all);
-	}
-	opti_3(all, a->array);
-	greedy_return(a, b, all);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 08:59:27 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:37:30 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:36:03 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	is_flag(char *str)
 {
@@ -59,6 +59,7 @@ int	flag_fill(char *s, t_all *all, int *flag_count)
 	*flag_count += cmp_update(s, "--adaptive", all, 3);
 	*flag_count += cmp_update(s, "--bench", all, 4);
 	*flag_count += cmp_update(s, "--visualize", all, 5);
+	*flag_count += cmp_update(s, "--test", all, 6);
 	if (all->flags[5] == '1')
 		write(1, "\033c", 3);
 	if (f == *flag_count)

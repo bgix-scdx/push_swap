@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:12:01 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/28 16:33:40 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 16:39:44 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	colone_one(int i, t_all all)
 		i = (ft_printf("\033[1;37m║    \033[1;31mPre Sorting : \
 \033[1;37m%d%%\033[0m", all.screen->disorder) + 1 - 25);
 	else if (i == 15)
-		i = (ft_printf("\033[1;37m║    \033[1;31mPost Sorting : \
-\033[1;37m%d%%\033[0m", disorder(all.a.array, all.a.s_max)) + 1 - 25);
+		i = (ft_printf("\033[1;37m║    \033[1;31mPost Sorting : \033[1;37mbah \
+0%% ducoup...  Je rapelle quand meme, c'est un algo de tri!A quoi sert cette lig\
+ne serieusement??\033[0m", disorder(all.a.array, all.a.s_max)) + 1 - 25);
 	else if (i == 18)
-		i = (ft_printf("\033[1;37m║\033[0m") + 1 - 11);
-	free(mod);
-	free(complexity);
-	return (i);
+		i = (ft_printf("\033[1;37m║	Ouai le bench est en francais...  On est qua\
+nd meme chez nous, merde!\033[0m") + 1 - 11);
+	return (free(mod), free(complexity), i);
 }
 
 int	colone_two(int i, t_all all)
@@ -73,7 +73,7 @@ void	print_column(t_all all, int index, int roof)
 	int		length;
 	char	*str;
 
-	c2_pos = 60;
+	c2_pos = 130;
 	steps = colone_one(index, all) - 1;
 	str = nxc(c2_pos - steps, ' ');
 	steps = steps + ft_printf("%s", str);
@@ -94,7 +94,7 @@ void	bench(t_all all)
 	int		lines;
 	int		size;
 
-	size = 100;
+	size = 160;
 	lines = 20;
 	i = 0;
 	hash = nxc(size, '#');
@@ -110,17 +110,4 @@ void	bench(t_all all)
 	}
 	free(hash);
 	free(space);
-}
-
-char	*nxc(int n, char c)
-{
-	char	*s;
-
-	s = malloc(n + 1);
-	if (!s)
-		return (write(2, "Error\n", 15), NULL);
-	s[n--] = '\0';
-	while (n >= 0)
-		s[n--] = c;
-	return (s);
 }

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:05:16 by bgix              #+#    #+#             */
-/*   Updated: 2026/01/26 16:33:12 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:34:22 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
+/*radix in base 2*/
 void	radix(t_all *all)
 {
 	int	i;
@@ -39,7 +40,7 @@ void	radix(t_all *all)
 	}
 }
 
-void	radix_2(t_all *all, int *e, int *botb, int *topb)
+void	radix_utils(t_all *all, int *e, int *botb, int *topb)
 {
 	int	i;
 	int	top;
@@ -65,6 +66,7 @@ void	radix_2(t_all *all, int *e, int *botb, int *topb)
 	}
 }
 
+/*radix in base 3*/
 void	radix_3(t_all *all)
 {
 	int	i;
@@ -77,7 +79,7 @@ void	radix_3(t_all *all)
 	{
 		topb = 0;
 		botb = 0;
-		radix_2(all, &e, &botb, &topb);
+		radix_utils(all, &e, &botb, &topb);
 		i = 0;
 		while (topb-- != 0)
 			pa(all);

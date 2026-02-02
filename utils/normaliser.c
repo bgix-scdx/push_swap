@@ -6,11 +6,11 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 13:20:17 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 15:59:08 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/31 14:10:28 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 /*
  * normalise the stack before puting it in the all->a.array.
@@ -24,26 +24,23 @@ int	*normaliser(int *list, int size)
 {
 	t_norm	a;
 	int		*new;
+	int		count;
+	int		i;
 
 	new = malloc((size + 1) * sizeof(int));
 	if (!new)
 		return (NULL);
-	a.n = 0;
-	a.prev_min = -2147483648;
-	while (a.n < size)
+	a.n = -1;
+	while (++a.n < size)
 	{
-		a.i = -1;
-		a.min = 2147483647;
-		while (++a.i < size)
+		i = -1;
+		count = 0;
+		while (++i < size)
 		{
-			if (list[a.i] < a.min && list[a.i] > a.prev_min)
-			{
-				a.min = list[a.i];
-				a.min_index = a.i;
-			}
+			if (list[i] <= list[a.n])
+				count++;
 		}
-		a.prev_min = list[a.min_index];
-		new[a.min_index] = ++a.n;
+		new[a.n] = count;
 	}
 	return (free(list), new);
 }

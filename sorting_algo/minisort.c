@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minisort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 10:01:07 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:41:44 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:34:17 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	opti_3(t_all *all, int *l)
 {

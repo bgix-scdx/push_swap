@@ -27,11 +27,32 @@
 	the numbers can be changed in the ARG=X,, by default it is 100 but can be changed to what ever number that is above 0.
 
 **Resources :**
-
 	vgertoph, bgix -> Multiples video presenting multiple kind of algorythm.
 	vgertoph -> Peer to Peer for algorythm recomandation.
 	vgertoph, bgix -> Multiple websites presenting some algorythm (Geek4geek, Medium).
 	AI Uses : some translations from french to english
+	the 0x2a channel explaining the turk sort and quick sort
+
+**contribution**
+	bgix made:
+		-Makefile
+		-bench
+		-visualiser
+		-check valgrind
+		-simple algoritmes
+		-check_dup
+
+	vgerthof made:
+		-instruction fonction
+		-data-structures
+		-Algoritmes
+		-parser, normaliser, checker etc...
+		-complexity calculation and modelisation
+		-number generator
+	
+	enadeau made:
+		-nothing he didn't help us at all
+		-he is not even in our group
 
 **Complexity :**
 
@@ -44,3 +65,18 @@
 	The complex algorithm is a radix sort in base 2.
 	Attempts were made to implement it in base 3, and the radix_3 function is still present, but it performs worse than the base-2 radix sort and was therefore not retained.
 	The complexity of the radix sort is n log₂(n), since the algorithm iterates log₂(n) times over the sequence, corresponding to the number of bits required to represent n in base 2.
+
+**Bonus**
+	Our push swap project feature a lot of extra things that we wanted to add and that the subject doesnt required.
+	Here is a list of these features
+
+	-Debbug fonctions allowing to understand clearly what is appening while the program is runing
+	-A disorder_sample function allowing to calculate the disorder of infinitely big list (assuming the disorder is uniform wich is often the case in random list)
+	-A program that take a size and a disorder percentage and create the list with the corresponding caracteristiques
+	-A visualiser with a sleep fonction made by ourself
+	-A --test flags allowing to simply test a new algoritme if needed
+	In the makefile
+		-The rng rule that make debug more pleasant
+		-the rng2 rule that compile our own gennum programe
+		-The valgrind_check and norm rules to ensure that the program is correct
+	

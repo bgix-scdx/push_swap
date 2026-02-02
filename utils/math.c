@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:17:36 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/26 16:04:48 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 16:36:27 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	abs(int n)
 {
@@ -42,4 +42,18 @@ int	mod(int p, int q)
 	if (p < 0)
 		p += q;
 	return (p);
+}
+
+int	genrand(int max, int seed)
+{
+	static int	r;
+	int			ret;
+
+	if (seed)
+		r = seed;
+	r = (r * 9301 + 49297) % 233280;
+	ret = r % max;
+	if (ret < 0)
+		ret += max;
+	return (ret);
 }

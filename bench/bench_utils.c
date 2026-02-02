@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fonction_de_debuggage.c                            :+:      :+:    :+:   */
+/*   bench_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgix <bgix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:35:11 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/28 16:34:30 by bgix             ###   ########.fr       */
+/*   Updated: 2026/01/30 09:28:41 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 		i++;
 	}
 	return (0);
+}
+
+char	*nxc(int n, char c)
+{
+	char	*s;
+
+	s = malloc(n + 1);
+	if (!s)
+		return (write(2, "Error\n", 15), NULL);
+	s[n--] = '\0';
+	while (n >= 0)
+		s[n--] = c;
+	return (s);
 }

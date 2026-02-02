@@ -6,7 +6,7 @@
 /*   By: vgerthof <vgerthof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 10:05:56 by vgerthof          #+#    #+#             */
-/*   Updated: 2026/01/27 17:03:42 by vgerthof         ###   ########.fr       */
+/*   Updated: 2026/01/30 19:03:19 by vgerthof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*adapt(char *flags, int disorder, t_all *all)
 	if (flags[3] == '1' || sum > '1' || sum == 0)
 	{
 		if (disorder < 20)
-			return (turk_sort(all), "turk_sort           O(n²)");
+			return (insert(all), "insert               O(n²)");
 		else if (disorder < 50)
 			return (chunk(all), "chunk_sort         O(n√n)");
 		else
 			return (radix(all), "radix_sort         O(nlogn)");
 	}
 	if (flags[0] == '1')
-		return (turk_sort(all), "turk_sort           O(n²)");
+		return (insert(all), "insert               O(n²)");
 	if (flags[1] == '1')
 		return (chunk(all), "chunk_sort          O(n√n)");
 	if (flags[2] == '1')
@@ -38,7 +38,7 @@ char	*adapt(char *flags, int disorder, t_all *all)
 char	*fonction_launch(t_all *all)
 {
 	if (all->screen->disorder == 0)
-		return ("Pas d'algoritme    0");
+		return ("nothing            O(1)");
 	if (all->s_max == 2)
 		return (sa(all), "Simple swap        O(1)");
 	if (all->s_max == 3)
@@ -47,6 +47,8 @@ char	*fonction_launch(t_all *all)
 		return (opti_4(all), "opti_4             O(1)");
 	if (all->s_max == 5)
 		return (opti_5(all), "opti_5             O(1)");
+	if (all->flags[6] == '1')
+		return (ultra_opti_2000(all), "test               JSP");
 	return (adapt(all->flags, all->screen->disorder, all));
 }
 
@@ -68,9 +70,9 @@ int	main(int argc, char **argv)
 
 	all = all_init(argc - 1, argv);
 	if (!all)
-		return (2);
+		return (free_all(all), 2);
 	if (!all->a.array)
-		return (write(2, "Error\n", 7), free_all(all), 0);
+		return (write(2, "Error\n", 7), 0);
 	all->screen->disorder = disorder(all->a.array, all->s_max);
 	if (all->screen->disorder == -1)
 		return (free_all(all), 1);
